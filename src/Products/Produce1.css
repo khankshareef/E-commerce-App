@@ -1,0 +1,11 @@
+.Produce1{
+    position: relative;
+    top: 570px;
+    left: -10px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    column-gap: 100px;
+
+}

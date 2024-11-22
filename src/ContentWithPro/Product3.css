@@ -1,0 +1,72 @@
+.Product3-com{
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+   margin-top: 50px;
+   .product{
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: -10px;
+      row-gap: 10px;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      column-gap: 10px;
+      margin-left: 50px;
+      .row1{
+         display: flex;
+         flex-direction: column;
+         margin-top: 10px;
+         margin-bottom: 10px;
+      }
+      .row1{
+         display: flex;
+         flex-direction: column;
+         margin-top: 10px;
+         margin-bottom: 10px;
+      }
+      .row2{
+         display: flex;
+         flex-direction: column;
+         margin-top: 10px;
+         margin-bottom: 10px;
+      }
+      .row3{
+         display: flex;
+         flex-direction: column;
+         margin-top: 10px;
+         margin-bottom: 10px;
+      }
+      .row4{
+         display: flex;
+         flex-direction: column;
+         margin-top: 10px;
+         margin-bottom: 10px;
+      }
+      .row5{
+         display: flex;
+         flex-direction: column;
+         margin-top: 10px;
+         margin-bottom: 10px;
+      }
+      .row6{
+         display: flex;
+         flex-direction: column;
+         margin-top: 10px;
+         margin-bottom: 10px;
+      }
+      .row7{
+         display: flex;
+         flex-direction: column;
+         margin-top: 10px;
+         margin-bottom: 10px;
+      }
+      .row8{
+         display: flex;
+         flex-direction: column;
+         margin-top: 10px;
+         margin-bottom: 10px;
+      }
+   
+   }
+}

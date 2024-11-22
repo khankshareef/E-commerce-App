@@ -1,0 +1,36 @@
+.Content2-com{
+    position: relative;
+    top: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 120px;
+    margin-bottom: 50px;
+    cursor: pointer;
+.women:hover{
+    border-inline-color: red;
+    border-bottom: 2px solid red;
+    color: red;
+}
+.women1:hover{
+    border-inline-color: red;
+    border-bottom: 2px solid red;
+    color: red;
+}
+.women2:hover{
+    border-inline-color: red;
+    border-bottom: 2px solid red;
+    color: red;
+}
+    .actives{
+        display: flex;
+        width: 230px;
+        justify-content: space-between;
+    }
+    .actives:focus{
+        color: red;
+    }
+   
+}

@@ -1,0 +1,28 @@
+.LatestContents{
+    display: flex;
+    flex-direction: column;
+    .content{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    .conten-detail{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        column-gap: 40px;
+        .card{
+            border: 1px solid rgba(128, 128, 128, 0.428);
+        }
+        img{
+            width: 49vw;
+            .card-title{
+                width: 40vw;
+            }
+        }
+    }
+}

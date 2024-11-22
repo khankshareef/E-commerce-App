@@ -1,0 +1,49 @@
+.footer-con{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.902);
+    color: white;
+    margin-top: 10px;
+    .contents{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 90px;
+    }
+    .search-con{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        input{
+            width: 380px;
+            height: 60px;
+            margin-right: 20px;
+            padding: 25px;
+            background-color: rgba(128, 128, 128, 0.501);
+            color: wheat;
+            outline: none;
+            border: none;
+            margin-top: 25px;
+        }
+        button{
+            width: 120px;
+            height: 60px;
+            border: none;
+            outline: none;
+            background-color: rgba(128, 128, 128, 0.501);
+            color: white;
+            margin-top: 25px;
+        }
+    }
+    .shopper-container{
+        display: flex;
+        justify-content: center;
+        column-gap: 100px;
+        margin-top: 70px;
+        color: gray;
+
+    }
+}

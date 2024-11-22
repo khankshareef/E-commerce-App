@@ -1,0 +1,31 @@
+.shopper-con{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 150px;
+    background-color: antiquewhite;
+    padding: 100px;
+    .content{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        .shopper{
+            margin-bottom: 20px;
+        }
+        .appear{
+            color: rgba(0, 0, 0, 0.761);
+            font-size: 18px;
+        }
+    }
+    .images{
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        justify-content: center;
+        margin-top: 60px;
+    }
+
+}
