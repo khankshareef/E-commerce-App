@@ -20,12 +20,7 @@ function Timer() {
             <div className='timer'>
             <span className='time'><h1 className='time'> 404: {time}</h1></span>
             </div>
-            <div className='spans'>
-            <span style={{marginRight:'30px',marginLeft:'50px',color:'purple'}}><h6>Days</h6> </span>
-                <span style={{marginLeft:'3px',color:'purple'}}> <h6>Hours:</h6> </span> 
-                <span style={{marginLeft:'5px',color:'purple'}}><h6>Minutes:</h6></span> 
-                <span style={{marginLeft:'7px',color:'purple'}}><h6>Seconds</h6></span>
-                </div>
+       
                 <button style={{bottom:'0px',backgroundColor:'black',color:'white',width:'150px',height:'50px'}}>Shop Now <ArrowForwardTwoToneIcon className='arrow'/></button>
         </div>
     </div>

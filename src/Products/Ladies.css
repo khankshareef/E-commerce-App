@@ -1,0 +1,170 @@
+/* General Styling */
+.show-women {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 700;
+  }
+  
+  /* Dress List Container */
+  .dress-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 10px;
+  }
+  
+  /* Individual Dress Card */
+  .dress-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+  }
+  
+  .dress-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .dress-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .dress-card:hover .dress-image {
+    transform: scale(1.1);
+  }
+  
+  /* Dress Info Section */
+  .dress-info {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .dress-info h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  
+  .dress-info p {
+    font-size: 1.2em;
+    color: #777;
+    margin-bottom: 15px;
+  }
+  
+  .dress-info .sizes,
+  .dress-info .colors {
+    margin-bottom: 10px;
+  }
+  
+  .dress-info strong {
+    font-weight: 700;
+    color: #333;
+    font-size: 1.1em;
+  }
+  
+  .dress-info ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .dress-info li {
+    margin: 5px 10px;
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .dress-info li:hover {
+    background-color: #f1f1f1;
+    color: #000;
+  }
+  
+  /* Color and Size Selection Hover Effects */
+  .dress-info .sizes li {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+  }
+  
+  .dress-info .sizes li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .dress-info .colors li {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+  }
+  
+  .dress-info .colors li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Media Queries for Mobile and Tablet Devices */
+  @media (max-width: 768px) {
+    .dress-list {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  
+    .dress-info h3 {
+      font-size: 1.4em;
+    }
+  
+    .dress-info p {
+      font-size: 1em;
+    }
+  
+    .dress-info li {
+      font-size: 0.9em;
+      padding: 6px 12px;
+    }
+  
+    h1 {
+      font-size: 2.2em;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .dress-list {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+  
+    .dress-info h3 {
+      font-size: 1.3em;
+    }
+  
+    .dress-info p {
+      font-size: 0.9em;
+    }
+  
+    .dress-info li {
+      font-size: 0.8em;
+      padding: 5px 10px;
+    }
+  
+    h1 {
+      font-size: 2em;
+    }
+  }
+  

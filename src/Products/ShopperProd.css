@@ -1,31 +1,74 @@
-.shopper-con{
+.shopper-con {
+    padding: 40px 20px;
+    background-color: #f8f8f8;
+  }
+  
+  /* Content section (title and subtitle) */
+  .content {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .shopper {
+    font-weight: bolder;
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  .appear {
+    font-size: 1rem;
+    color: gray;
+  }
+  
+  /* Container for the product images */
+  .images {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  /* Styling for each image container */
+  .images div {
+    text-align: center;
     width: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 150px;
-    background-color: antiquewhite;
-    padding: 100px;
-    .content{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        .shopper{
-            margin-bottom: 20px;
-        }
-        .appear{
-            color: rgba(0, 0, 0, 0.761);
-            font-size: 18px;
-        }
+    max-width: 180px;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Image hover effect */
+  .images div:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Style for images inside each container */
+  .images img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Media Queries for responsiveness */
+  
+  /* For tablets and larger screens */
+  @media (min-width: 768px) {
+    .images div {
+      width: calc(33.333% - 20px); /* 3 images per row */
     }
-    .images{
-        display: flex;
-        align-items: center;
-        column-gap: 10px;
-        justify-content: center;
-        margin-top: 60px;
+  }
+  
+  /* For mobile devices (single column) */
+  @media (max-width: 768px) {
+    .images div {
+      width: 100%; /* 1 image per row */
     }
-
-}
+    .shopper {
+      font-size: 1.5rem; /* Adjust title size for smaller screens */
+    }
+    .appear {
+      font-size: 0.9rem; /* Adjust subtitle size for smaller screens */
+    }
+  }
+  

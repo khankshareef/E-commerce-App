@@ -1,10 +1,105 @@
-.produce{
-    position: relative;
-    top: 585px;
-    margin-left: -35px;
-    display: flex;
-    width: 100%;
+/* Main container */
+.produce {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  flex-wrap: wrap;
+  gap: 20px;
+  background-color: #f9f9f9;
+}
+
+/* Images container */
+.images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Image wrapper for hover effects */
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Zoom effect on image */
+.image-wrapper:hover {
+  transform: scale(1.05); /* Zoom effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Images */
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.image1 {
+  width: 330px;
+  height: 380px;
+}
+
+.image2 {
+  width: 600px;
+  height: 380px;
+}
+
+/* Shop Now button */
+.shop-now-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  background-color: rgba(255, 102, 0, 0.9);
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 20px;
+  opacity: 1; /* Make the button always visible */
+  visibility: visible; /* Make the button always visible */
+}
+
+/* Button hover effect */
+.shop-now-btn:hover {
+  background-color: rgba(230, 92, 0, 0.9);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .produce {
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    border-radius: 20%;
+    gap: 15px;
+  }
+
+  .image1,
+  .image2 {
+    width: 90%; /* Scale images to fit screen width */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .shop-now-btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .image1,
+  .image2 {
+    width: 100%; /* Further scaling for smaller screens */
+  }
+
+  .shop-now-btn {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
 }

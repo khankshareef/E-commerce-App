@@ -1,0 +1,118 @@
+/* Main Container */
+.show-men {
+  padding: 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 30px;
+  font-size: 2em;
+  color: #333;
+}
+
+/* Image Section */
+.single-image img {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dresses List */
+.dress-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.dress-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 280px;
+  transition: transform 0.3s ease;
+}
+
+.dress-card:hover {
+  transform: scale(1.05);
+}
+
+.dress-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* Dress Info */
+.dress-info {
+  padding: 15px;
+  text-align: left;
+}
+
+.dress-info h3 {
+  margin: 10px 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.dress-info p {
+  margin: 5px 0;
+  color: #555;
+}
+
+/* Sizes and Colors */
+.sizes, .colors {
+  margin: 10px 0;
+}
+
+.sizes ul, .colors ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.sizes li, .colors li {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* Add to Cart Button */
+.add-to-cart-btn {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #007bff;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .dress-card {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .dress-info {
+    text-align: center;
+  }
+}
+

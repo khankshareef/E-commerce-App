@@ -1,15 +1,82 @@
-.Products{
+.Products {
     display: flex;
-    position: relative;
-    top: 580px;
-    width: 100%;
     justify-content: center;
     align-items: center;
-    padding: 50px;
-    .content{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9; /* Optional background color */
+    min-height: 300px; /* Ensures some vertical spacing */
+  }
+  
+  /* Content container */
+  .content {
+    max-width: 800px; /* Restrict width for readability */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Spacing between lines */
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Heading styles */
+  .content h1 {
+    font-size: 2.5rem;
+    color: #333; /* Dark text */
+    margin: 10px 0;
+  }
+  
+  .content h6 {
+    font-size: 1rem;
+    color: #666; /* Light gray for secondary text */
+    margin: 5px 0;
+  }
+  
+  /* Highlighted span styles */
+  .content span:first-child {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff7f50; /* Accent color */
+    margin-bottom: 10px;
+  }
+  
+  /* Responsive design for tablets */
+  @media screen and (max-width: 1024px) {
+    .content h1 {
+      font-size: 2rem;
     }
-
-}
+  
+    .content h6 {
+      font-size: 0.9rem;
+    }
+  
+    .content {
+      padding: 15px;
+      gap: 8px;
+    }
+  }
+  
+  /* Responsive design for phones */
+  @media screen and (max-width: 768px) {
+    .Products {
+      padding: 15px;
+    }
+  
+    .content {
+      max-width: 90%; /* Make it fit within the phone screen */
+      padding: 10px;
+    }
+  
+    .content h1 {
+      font-size: 1.8rem;
+    }
+  
+    .content h6 {
+      font-size: 0.85rem;
+    }
+  
+    .content span:first-child {
+      font-size: 1rem;
+    }
+  }
+  
+  

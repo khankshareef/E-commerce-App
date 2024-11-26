@@ -1,49 +1,137 @@
-.footer-con{
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.902);
+.footer-con {
+    background-color: #333;
+    padding: 30px 20px;
     color: white;
-    margin-top: 10px;
-    .contents{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 90px;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Footer content */
+  .contents {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .contents h3 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  /* Search container */
+  .search-con {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-con input {
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+  }
+  
+  .search-con button {
+    padding: 10px 20px;
+    background-color: #ff6f61;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    width: 80%;
+    max-width: 400px;
+  }
+  
+  /* Shop, Support, Company, and Contact sections */
+  .shopper-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  
+  .shopper,
+  .support,
+  .shop,
+  .company,
+  .contact {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .shopper h5,
+  .support h6,
+  .shop h6,
+  .company h6,
+  .contact h6 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  
+  .shopper h5 {
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .shopper .logose {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+  
+  .shopper .logose svg {
+    width: 20px;
+  }
+  
+  .support h6,
+  .shop h6,
+  .company h6,
+  .contact h6 {
+    font-weight: normal;
+  }
+  
+  /* Footer background and spacing for mobile view */
+  .footer-con {
+    background: #333 url('https://www.transparenttextures.com/patterns/45-degree-fabric.png') repeat;
+  }
+  
+  @media (max-width: 768px) {
+    /* Stack footer sections for smaller screens */
+    .shopper-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
     }
-    .search-con{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        input{
-            width: 380px;
-            height: 60px;
-            margin-right: 20px;
-            padding: 25px;
-            background-color: rgba(128, 128, 128, 0.501);
-            color: wheat;
-            outline: none;
-            border: none;
-            margin-top: 25px;
-        }
-        button{
-            width: 120px;
-            height: 60px;
-            border: none;
-            outline: none;
-            background-color: rgba(128, 128, 128, 0.501);
-            color: white;
-            margin-top: 25px;
-        }
+  
+    .search-con input,
+    .search-con button {
+      width: 100%;
+      max-width: none;
     }
-    .shopper-container{
-        display: flex;
-        justify-content: center;
-        column-gap: 100px;
-        margin-top: 70px;
-        color: gray;
-
+  
+    .footer-con {
+      padding: 20px;
     }
-}
+  
+    /* Adjust text sizes */
+    .contents h3 {
+      font-size: 1.5rem;
+    }
+  
+    .shopper h5,
+    .support h6,
+    .shop h6,
+    .company h6,
+    .contact h6 {
+      font-size: 0.9rem;
+    }
+  }

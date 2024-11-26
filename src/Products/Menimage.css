@@ -1,0 +1,166 @@
+/* General Styling */
+.men-container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.men-container h1 {
+  text-align: center;
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+/* Product List Grid */
+.men-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0 10px;
+}
+
+/* Individual Product Card */
+.men-product-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative;
+  text-align: center;
+}
+
+.men-product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.men-product-card:hover .product-image {
+  transform: scale(1.1);
+}
+
+/* Product Info Section */
+.men-product-card h2 {
+  font-size: 1.5em;
+  color: #333;
+  margin: 15px 0 10px;
+  font-weight: 600;
+}
+
+.men-product-card p {
+  font-size: 1.2em;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+.men-product-card .price {
+  font-size: 1.3em;
+  color: #e63946;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Button Styling */
+
+
+.buy-button:hover {
+  background-color: #026aa7;
+}
+
+/* Sizes and Colors Section */
+.sizes, .colors {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.sizes h3, .colors h3 {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.sizes ul, .colors ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sizes ul li, .colors ul li {
+  font-size: 0.9rem;
+  color: #444;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sizes ul li:hover, .colors ul li:hover {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+/* Color Options as Circles */
+.colors ul li {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  padding: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .men-products {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .men-product-card h2 {
+      font-size: 1.4em;
+  }
+
+  .men-product-card p {
+      font-size: 1em;
+  }
+
+  .buy-button {
+      font-size: 0.9rem;
+      padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .men-products {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .men-product-card h2 {
+      font-size: 1.3em;
+  }
+
+  .men-product-card p {
+      font-size: 0.9em;
+  }
+
+  .buy-button {
+      font-size: 0.8rem;
+      padding: 6px 10px;
+  }
+
+  .sizes ul li, .colors ul li {
+      font-size: 0.8rem;
+      padding: 3px 8px;
+  }
+}

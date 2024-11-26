@@ -1,38 +1,52 @@
-.Content{
-    position: relative;
-    top: 550px;
-    width: 100%;
+.Content {
+    display: flex;
     justify-content: center;
     align-items: center;
-    display: flex;
-    border-bottom: 1px solid gray;
-    padding: 20px;
-    column-gap: 50px;
-    
+    padding: 20px 10px;
+    flex-wrap: wrap; 
+    gap: 20px; 
+    background-color: #f9f9f9; 
+  }
   
-    .content1{
-        display: flex;
-        flex-direction: column;
-        margin-right: 40px;
-        border-right:1px solid gray ;
-
+  .Content > div {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    text-align: center;
+    gap: 5px; 
+    flex: 1 1 calc(25% - 20px);
+    max-width: 250px; 
+    min-width: 180px; 
+  }
+  
+  .Content span:first-child {
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .Content span:last-child {
+    font-size: 14px;
+    color: gray;
+  }
+  
+  @media screen and (max-width: 1024px) {
+    .Content > div {
+      flex: 1 1 calc(50% - 20px); 
     }
-    .content2{
-        display: flex;
-        flex-direction: column;
-        margin-right: 40px;
-        border-right:1px solid gray ;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .Content {
+      flex-direction: column; 
+      gap: 15px;
     }
-    .content3{
-        display: flex;
-        flex-direction: column;
-        margin-right: 40px;
-        border-right:1px solid gray ;
+  
+    .Content > div {
+      flex: 1 1 100%; /* Full width for each item */
+      max-width: 100%; /* Prevents horizontal overflow */
     }
-    .content4{
-        display: flex;
-        flex-direction: column;
-        margin-right: 40px;
-        border-right:1px solid gray ;
-    }
-}
+  }
+  

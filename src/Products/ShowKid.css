@@ -1,0 +1,129 @@
+/* General Styles */
+.show-kids {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Product Display Section for Single Image in Row */
+.product-display {
+  display: flex; /* Flexbox for row layout */
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px; /* Spacing between image and info */
+  margin-bottom: 30px;
+  flex-wrap: wrap; /* Ensures responsiveness */
+}
+
+.product-info {
+  text-align: left;
+  max-width: 500px; /* Adjust based on your content */
+}
+
+.product-image {
+  flex: 1; /* Allows the image to take available space */
+}
+
+.product-image img {
+  max-width: 400px; /* Constrain image width */
+  max-height: 300px; /* Constrain image height */
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Sizes and Colors */
+.sizes, .colors {
+  margin-top: 15px;
+}
+
+.sizes ul, .colors ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap; /* Responsive layout for sizes/colors */
+  gap: 10px;
+}
+
+.sizes li, .colors li {
+  background-color: #f4f4f4;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sizes li:hover, .colors li:hover {
+  background-color: #e0e0e0;
+}
+
+/* Add to Cart Button */
+.add-to-cart-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #218838;
+}
+
+/* Dress List Section */
+.dress-list {
+  display: flex;
+  flex-wrap: wrap; /* Ensures cards wrap on smaller screens */
+  justify-content: center;
+  gap: 20px;
+}
+
+.dress-card {
+  width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 15px;
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dress-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dress-image {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .product-display {
+    flex-direction: column; /* Stack image and info on smaller screens */
+    align-items: center;
+  }
+
+  .product-image img {
+    max-width: 100%;
+  }
+}
+

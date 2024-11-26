@@ -1,0 +1,145 @@
+.cart {
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .cart p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #777;
+    margin: 20px 0;
+  }
+  
+  .cart ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .cart li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart li img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 4px;
+  }
+  
+  .cart li span {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .cart li button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff4d4d;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .cart li button:hover {
+    background-color: #ff1a1a;
+  }
+  
+  /* Back to Home Button */
+  .cart a {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    width: fit-content;
+    transition: all 0.3s;
+  }
+  
+  .cart a:hover {
+    color: white;
+    background-color: #007bff;
+  }
+  
+  @media (max-width: 768px) {
+    .cart {
+      margin: 10px auto;
+      padding: 15px;
+    }
+  
+    .cart h2 {
+      font-size: 1.8rem;
+    }
+  
+    .cart li {
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+  
+    .cart li img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+  
+    .cart li span {
+      display: block;
+      margin: 5px 0;
+    }
+  
+    .cart li button {
+      align-self: flex-start;
+    }
+  
+    .cart a {
+      font-size: 1.2rem;
+      padding: 8px 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .cart h2 {
+      font-size: 1.6rem;
+    }
+  
+    .cart p {
+      font-size: 1rem;
+    }
+  
+    .cart li span {
+      font-size: 0.9rem;
+    }
+  
+    .cart a {
+      font-size: 1rem;
+      padding: 5px 10px;
+    }
+  }
+  

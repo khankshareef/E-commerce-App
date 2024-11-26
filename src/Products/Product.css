@@ -1,33 +1,84 @@
-.Products-con{
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    .products{
-        display: flex;
-        position: relative;
-        top: 100px;
-    }
-    .hover1:hover{
-        filter: grayscale(0.4);
-    }
-    .hover2:hover{
-        filter: grayscale(0.4);
-    }
-    .hover3:hover{
-        filter: grayscale(0.4);
-    }
-   .buttons{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: -200px;
-    z-index: 3;
-    padding: 160px;
-   }
-   button:hover{
-    .arrow:hover{
-        transform: translateX(4px);
-    }
-   }
+/* Common styling for products */
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centers the cards */
+  gap: 15px; /* Space between items */
+}
 
+/* Product Card */
+.product-card {
+  position: relative;
+  width: calc(33.33% - 20px); /* 3 cards per row */
+  max-width: 530px; /* Ensures proper sizing */
+  overflow: hidden;
+}
+
+/* Product Card Image */
+.product-card img {
+  width: 100%; /* Makes images responsive */
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Button styling (always visible) */
+.product-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers the button */
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 1; /* Make the button always visible */
+  visibility: visible; /* Make the button always visible */
+  transition: transform 0.3s ease-in-out; /* Remove opacity transition */
+}
+
+.product-button:hover {
+  background-color: rgba(0, 0, 0, 0.9); /* Darkens button on hover */
+}
+
+/* Responsive Design */
+
+/* Tablet devices and below (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+  .product-card {
+    width: calc(50% - 20px); /* 2 cards per row */
+  }
+
+  .product-button {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+}
+
+/* Small phone devices (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .product-card {
+    width: 100%; /* 1 card per row */
+    margin-bottom: 0; /* Remove any extra gap between rows */
+  }
+
+  .products {
+    gap: 0; /* Remove the gap between items */
+  }
+
+  .product-button {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+}
+
+/* Extra small phone devices (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .product-button {
+    font-size: 10px;
+    padding: 6px 8px;
+  }
 }

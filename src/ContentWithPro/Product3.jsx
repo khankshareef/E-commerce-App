@@ -1,77 +1,105 @@
-import React from 'react'
-import './Product3.css'
+import React, { useContext, useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { DataContext } from '../Products/Routers'; // Import the context
+import './Product3.css';
 
-function Product3() {
+function Product3({ selectedCategory }) {
+  const [clothingData, setClothingData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const { cart, setCart } = useContext(DataContext); // Access the cart context
+
+  const fetchClothingData = async () => {
+    const apiUrl = `https://fakestoreapi.com/products/category/${selectedCategory}`;
+    try {
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+      setClothingData(data);
+      setLoading(false);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      setError('Failed to load data. Please try again later.');
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchClothingData();
+  }, [selectedCategory]); // Refetch when the category changes
+
+  const addToCart = (item) => {
+    setCart((prevCart) => {
+      const existingItem = prevCart.find((cartItem) => cartItem.id === item.id);
+      if (existingItem) {
+        toast.info(`${item.title} quantity updated!`);  // Show a toast notification
+        return prevCart.map((cartItem) =>
+          cartItem.id === item.id
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
+        );
+      }
+      toast.success(`${item.title} added to cart!`);  // Show a toast notification
+      return [...prevCart, { ...item, quantity: 1 }];
+    });
+  };
+
+  const removeFromCart = (id) => {
+    setCart((prevCart) =>
+      prevCart
+        .map((cartItem) =>
+          cartItem.id === id
+            ? { ...cartItem, quantity: cartItem.quantity - 1 }
+            : cartItem
+        )
+        .filter((cartItem) => cartItem.quantity > 0) // Remove items with quantity 0
+    );
+    toast.error('Item removed from cart!');  // Show a toast notification
+  };
+
+  if (loading) {
+    return <div className="loading">Loading products, please wait...</div>;
+  }
+
+  if (error) {
+    return <div className="error">{error}</div>;
+  }
+
   return (
-    <div className='Product3-com col-4'>
-      <div className='product rows=3' >
-        <div>
-      <img src="https://yevgenysim-turkey.github.io/shopper/assets/img/products/product-5.jpg" alt="" width={250} height={300}/>
-      <div className='row1'>
-      <span style={{fontSize:'14px',color:'gray'}}>Shoes</span>
-      <span style={{fontWeight:'bolder'}}>Leather mid-heel Sandals </span>
-      <span  style={{color:'gray'}}>$129.00 </span>
-      </div>
-      </div>
-      <div>
-      <img src="https://yevgenysim-turkey.github.io/shopper/assets/img/products/product-6.jpg" alt="" width={250} height={300} />
-      <div className='row2'>
-        <span style={{fontSize:'14px',color:'gray'}} > Dresses</span>
-        <span style={{fontWeight:'bolder'}}>Cotton floral print Dress </span>
-        <span style={{color:'gray'}}>$40.00 </span>
-      </div>
-      </div>
-      <div>
-      <img src="https://yevgenysim-turkey.github.io/shopper/assets/img/products/product-7.jpg" alt=""  width={250} height={300}/>
-      <div className='row3'>
-        <span style={{fontSize:'14px',color:'gray'}}> Shoes</span>
-        <span style={{fontWeight:'bolder'}}>Leather Sneakers  </span>
-        <span style={{color:'gray'}}> $85.00 $85.00  </span>
-      </div>
-      </div>
-      <div>
-      <img src="https://yevgenysim-turkey.github.io/shopper/assets/img/products/product-9.jpg" alt="" width={250} height={300}/>
-      <div className='row4'>
-        <span style={{fontSize:'14px',color:'gray'}}> Dresses</span>
-        <span style={{fontWeight:'bolder'}}>Floral print midi Dress  </span>
-        <span style={{color:'gray'}}> $50.00  </span>
-      </div>
-      </div>
-      <div>
-      <img src="https://yevgenysim-turkey.github.io/shopper/assets/img/products/product-10.jpg" alt="" width={250} height={300}/>
-      <div className='row5'>
-        <span style={{fontSize:'14px',color:'gray'}}> Bags</span>
-        <span style={{fontWeight:'bolder'}}>Suede cross body Bag   </span>
-        <span style={{color:'gray'}}> $79.00 $49.00  $50.00  </span>
-      </div>
-      </div>
-      <div>
-        <img src="https://yevgenysim-turkey.github.io/shopper/assets/img/products/product-8.jpg" alt="" width={250} height={300}/>
-        <div className='row6'>
-        <span style={{fontSize:'14px',color:'gray'}}> Tops</span>
-        <span style={{fontWeight:'bolder'}}>Cropped cotton Top    </span>
-        <span style={{color:'gray'}}> $29.00  </span>
-      </div>
-        </div>
-        <div>
-        <img src="https://yevgenysim-turkey.github.io/shopper/assets/img/products/product-11.jpg" alt="" width={250} height={300}/>
-        <div className='row7'>
-        <span style={{fontSize:'14px',color:'gray'}}> Skirts</span>
-        <span style={{fontWeight:'bolder'}}>Printed A-line Skirt    </span>
-        <span style={{color:'gray'}}>$79.00   </span>
-      </div>
-        </div>
-        <div>
-        <img src="https://yevgenysim-turkey.github.io/shopper/assets/img/products/product-12.jpg" alt="" width={250} height={300}/>
-        <div className='row8'>
-        <span style={{fontSize:'14px',color:'gray'}}> Shoes</span>
-        <span style={{fontWeight:'bolder'}}>Heel strappy Sandals   </span>
-        <span style={{color:'gray'}}>$90.00  </span>
-      </div>
-        </div>
+    <div className="clothing-list">
+      <ToastContainer position="top-center" />  {/* Display toast in the center-top */}
+      <div className="clothing-grid">
+        {clothingData.map((item) => (
+          <div key={item.id} className="card">
+            <img src={item.image} className="card-img-top" alt={item.title} />
+            <div className="card-body">
+              <h5 className="card-title">{item.title}</h5>
+              <p className="card-text">
+                {item.description.length > 200
+                  ? item.description.slice(0, 200) + '...'
+                  : item.description}
+              </p>
+              <p style={{ marginBottom: '40px' }}>Price: ${item.price}</p>
+              <button
+                onClick={() => removeFromCart(item.id)}
+                type="button"
+                className="btn btn-warning buttonss"
+              >
+                Clear
+              </button>
+              <button
+                onClick={()=> addToCart(item)}
+                type="button"
+                className="btn btn-primary mx-5 buttons"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
-  )
+  );
 }
 
-export default Product3
+export default Product3;

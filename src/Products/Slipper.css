@@ -1,18 +1,131 @@
-.Timer{
- .content{
-    margin-top: -400px;
-    margin-left: 250px;
- }   
- .spans{
-    display: flex;
-    margin-left: -20px;
-    margin-bottom: 20px;
- }
- .arrow:hover{
-   transform: translateX(4px);
- }
- .time{
-   font-size: 50px;
-   margin-top: 30px;
- }
+.Slippers {
+  position: relative; /* Ensure the timer can be centered over the image */
+}
+
+.image img {
+  width: 100%; /* Ensure image takes up full width */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Remove any spacing under the image */
+}
+
+/* Timer content styling */
+.Timer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 1; /* Ensure the timer appears above the image */
+  padding: 10px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Summer collection styling */
+.summers h2 {
+  font-size: 24px; /* Larger text for desktop */
+}
+
+.summer {
+  color: #ff6347;
+}
+
+/* Timer styling */
+.time {
+  font-size: 36px; /* Larger time display */
+  font-weight: bold;
+}
+
+/* Timer labels (Days, Hours, Minutes, Seconds) */
+.spans h6 {
+  font-size: 14px;
+  margin: 0 5px;
+  color: purple;
+}
+.spans{
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Button styling */
+button {
+  margin-top: 20px;
+  background-color: black;
+  color: white;
+  width: 150px;
+  height: 50px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1024px) {
+  .summers h2 {
+    font-size: 20px; /* Adjust text size for medium screens */
+  }
+
+  .time {
+    font-size: 28px; /* Adjust time size for medium screens */
+  }
+
+  .spans h6 {
+    font-size: 12px; /* Adjust labels for medium screens */
+  }
+
+  button {
+    width: 120px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 768px) {
+  .summers h2 {
+    font-size: 18px; /* Adjust text size for smaller screens */
+  }
+
+  .time {
+    font-size: 24px; /* Adjust time size for smaller screens */
+  }
+
+  .spans h6 {
+    font-size: 10px; /* Adjust labels for smaller screens */
+  }
+
+  button {
+    width: 100px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .summers h2 {
+    font-size: 16px; /* Further reduce text size for very small screens */
+  }
+
+  .time {
+    font-size: 20px; /* Smaller time size for very small screens */
+  }
+
+  .spans h6 {
+    font-size: 8px; /* Smallest label size */
+  }
+
+  button {
+    width: 90px;
+    height: 35px;
+  }
 }

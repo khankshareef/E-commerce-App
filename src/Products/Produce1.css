@@ -1,11 +1,72 @@
-.Produce1{
-    position: relative;
-    top: 570px;
-    left: -10px;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    column-gap: 100px;
+/* Main container */
+.Produce1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  background-color: #f9f9f9; /* Optional background */
+  gap: 20px; /* Space between items */
+  position: relative;
+}
 
+/* Common styling for images */
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-wrapper:hover img {
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Shop Now button styling */
+.shop-now-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px 30px;
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 25px;
+  opacity: 1; /* Make the button always visible */
+  visibility: visible; /* Make the button always visible */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+.shop-now-btn:hover {
+  background-color: #333; /* Darker shade of black on hover */
+  transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .Produce1 {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .image-wrapper img {
+    max-width: 100%;
+  }
+
+  .shop-now-btn {
+    font-size: 16px;
+    padding: 12px 25px;
+  }
 }

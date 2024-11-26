@@ -1,28 +1,123 @@
-.LatestContents{
+.LatestContents {
+    padding: 40px 20px;
+    background-color: #f8f8f8;
+  }
+  
+  .content {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .content span {
+    font-size: 14px;
+    color: gray;
+  }
+  
+  .content h1 {
+    font-weight: bolder;
+    margin-top: 10px;
+    font-size: 2rem;
+  }
+  
+  /* Container for the reviews (cards) */
+  .conten-detail {
     display: flex;
-    flex-direction: column;
-    .content{
-        display: flex;
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-top: 40px;
-        margin-bottom: 40px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  /* Styling for each card */
+  .card {
+    width: 100%;
+    max-width: 300px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Hover effect for the cards */
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Image inside each card */
+  .card-img-top {
+    width: 100px;
+    height: auto;
+    margin: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  /* Body of the card */
+  .card-body {
+    padding: 15px;
+    h5{
+      text-decoration: none;
     }
-    .conten-detail{
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        column-gap: 40px;
-        .card{
-            border: 1px solid rgba(128, 128, 128, 0.428);
-        }
-        img{
-            width: 49vw;
-            .card-title{
-                width: 40vw;
-            }
-        }
+  }
+  
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .card-text {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+    margin: 10px 0;
+    text-decoration: none !important;
+  }
+  
+  .card-body p {
+    font-size: 0.8rem;
+    color: #999;
+    text-align: right;
+    margin-top: 10px;
+  }
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 768px) {
+    .content h1 {
+      font-size: 1.5rem;
     }
-}
+  
+    .card-title {
+      font-size: 1rem;
+    }
+  
+    .card-text {
+      font-size: 0.85rem;
+    }
+  
+    /* Flex-wrap adjustments for smaller screens */
+    .conten-detail {
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .content h1 {
+      font-size: 1.3rem;
+    }
+  
+    .card-title {
+      font-size: 0.9rem;
+    }
+  
+    .card-text {
+      font-size: 0.8rem;
+    }
+  
+    .card-body p {
+      font-size: 0.75rem;
+    }
+  }

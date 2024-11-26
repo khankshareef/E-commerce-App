@@ -1,59 +1,66 @@
-.navbar-container{
-    display: flex;
-    margin-top: 60px;
-    top: 0px;
-    width: 100%;
-    background-color: rgba(128, 128, 128, 0.106);
-    height: 6.5vh;
+.navbar-container {
+    display: flex; 
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    z-index: -2;
-    border-top: 2px solid purple;
-    
-    
-.leftnav{
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+    flex-wrap: nowrap;
+  }
+  
+  .leftnav, .rightnav {
     display: flex;
     align-items: center;
-    .us-logo{
-        display: flex;
-        align-items: center;
-        margin-left: 40px;
-        .content{
-            display: flex;
-            align-items: center;
-            margin-top: 12px;
-            width: 100%;
-            margin-right: 60px;
-            margin-left: 7px;
-            justify-content: space-between;  
-            span{
-                margin-right: 15px;
-                h6{
-                    font-size: 14px;
-                    font-weight: bolder;
-                }
-            }
-        }
-    }
-}
-.rightnav{
+    gap: 10px;
+  }
+  
+  .leftnav span {
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  .us-logo img {
+    width: 25px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .rightnav .social-icons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .rightnav .dropdown {
     display: flex;
     align-items: center;
-    flex-direction: row;
-    width: 50%;
-    justify-content: center;
-    .content1{
-        display: flex;
-        align-items: center;
-        margin-top: 8px;
-        justify-content: space-between;
-        width: 30%;
-        justify-content: space-between;
-        margin-right: 70px;
+    gap: 5px;
+    cursor: pointer;
+  }
+  
+  .more-btn {
+    display: none;
+    cursor: pointer;
+    align-items: center;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .navbar-container {
+      flex-wrap: wrap; 
+      flex-direction: column; 
+      align-items: flex-start;
     }
-    .logose{
-        display: flex;
-        width: 20%;
+  
+    .rightnav {
+      display: none; 
     }
-}
-}
+  
+    .rightnav.active {
+      display: flex; 
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .more-btn {
+      display: flex; 
+    }
+  }
