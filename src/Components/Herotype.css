@@ -1,242 +1,71 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .hero-com {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  width: 100%;
   background-color: #fff;
-  border-bottom: 1px solid #eaeaea;
-}
-.hover-1:hover{
-  color: aqua;
-}
-
-.left {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  h3{
-    text-decoration: none;
-    color: black;
-  }
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .middle {
-  flex: 2;
   display: flex;
-  justify-content: center;
-  gap: 35px;
-  position: relative;
+  gap: 20px;
+padding: 10px;
 }
 
-.middle .hover1 {
-  position: relative;
+.middle span {
   cursor: pointer;
 }
 
-.middle .hover1:hover .dropdown {
+.middle.open {
   display: flex;
-}
-
-.dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: white;
-  border: 1px solid #ddd;
-  padding: 5px 0;
-  z-index: 10;
   flex-direction: column;
-  justify-content: space-evenly;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  z-index: 99;
 }
 
-.dropdown span {
-  display: inline-block;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-.dropdown span:hover {
-  background-color: #f4f4f4;
-}
-
-/* Right Section (Icons) */
 .right {
-  flex: 1;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   gap: 10px;
+  margin-right: 25px;
 }
 
-.right .hovers1,
-.right .hovers2,
-.right .hovers3,
-.right .hovers4 {
+.hovers1:hover,
+.hovers2:hover,
+.hovers3:hover,
+.hovers4:hover {
+  color: #007bff;
   cursor: pointer;
 }
-
-.order {
-  background-color: red;
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
-  text-align: center;
-  display: inline-block;
-  min-width: 18px;
-  height: 18px;
-  line-height: 18px;
-  border-radius: 50%;
-}
-
 
 .mobile-menu {
-  display: block;
-  cursor: pointer;
-  font-size: 30px;
-  margin-left: 10px;
-}
-.middle .hover4:hover .pages-dropdown,
-.middle .hover5:hover .blog-dropdown {
-  display: flex;
-  flex-direction: column; 
-  gap: 10px;
-}
-
-.pages-dropdown {
   display: none;
   position: absolute;
-  top: 100%;
-  left: 100;
-  background-color: white;
-  border: 1px solid #ddd;
-  padding: 5px 0;
-  z-index: 10;
-  flex-direction: column;
-}
-
-.blog-dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 130;
-  background-color: white;
-  border: 1px solid #ddd;
-  padding: 5px 0;
-  z-index: 10;
-  flex-direction: column; 
-}
-
-.pages-dropdown span,
-.blog-dropdown span {
-  display: inline-block;
-  padding: 5px 10px;
+  top: 15px;
+  right: 20px;
+  z-index: 200;
   cursor: pointer;
+
 }
-
-
-.pages-dropdown span:hover,
-.blog-dropdown span:hover {
-  background-color: #f4f4f4;
-}
-
-/* Ensure the dropdown appears only on hover */
-.middle .hover4:hover .pages-dropdown,
-.middle .hover5:hover .blog-dropdown {
-  display: flex;
-}
-
-
 
 @media (max-width: 768px) {
-  .hero-com {
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 10px;
-  }
-
-  /* Stack Sections */
-  .left {
-    width: 100%;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-
   .middle {
-    width: 100%;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 10px;
-    display: none;
+    display: none; /* Hide desktop menu on small screens */
   }
 
-  .right {
-    width: 100%;
-    justify-content: space-between;
-    gap: 15px;
+  .middle.open {
+    display: flex; /* Show mobile menu when toggled */
   }
 
   .mobile-menu {
-    display: block;
+    display: block; /* Show hamburger menu icon on small screens */
   }
-
-  .middle.open {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-  }
-}
-
-@media (max-width: 576px) {
-  .hero-com {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .left {
-    margin-bottom: 10px;
-    justify-content: center;
-  }
-
-  .middle {
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 10px;
-    display: none;
-  }
-
-  .middle.open {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-  }
-
-  .right {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    justify-items: center;
-  }
-
-  .right .hovers1,
-  .right .hovers2,
-  .right .hovers3,
-  .right .hovers4 {
-    font-size: 24px;
-  }
-
-  .order {
-    position: static;
-  }
-  
 }
