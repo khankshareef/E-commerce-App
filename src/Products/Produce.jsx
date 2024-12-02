@@ -13,7 +13,7 @@ function Produce() {
             src="https://img.freepik.com/free-photo/young-smiling-man-red-shirt-with-optical-glasses-points-himself-isolated-orange-wall_141793-35496.jpg?ga=GA1.1.1854208482.1732183473&semt=ais_hybrid"
             alt="Person 1"
           />
-          <h3 style={{position:'absolute',top:'27%',left:'35%',color:'white',fontWeight:'bolder'}}>Tsirts</h3>
+          <h3 style={{position:'absolute',top:'27%',left:'40%',color:'white',fontWeight:'bolder'}}>Tsirts</h3>
           <span className="shop-now-btn">Shop Now ➡ </span>
         </Link>
 

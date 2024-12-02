@@ -19,7 +19,7 @@ function Produce1() {
               Shop Now ➡ 
             </a>
             </Link>
-            <h3 style={{position:'absolute',top:'30%',left:'36%',fontFamily:'fantasy',fontWeight:'bolder',color:'white'}}>Bags Collection</h3>
+            <h3 style={{position:'absolute',top:'30%',left:'35%',fontFamily:'fantasy',fontWeight:'bolder',color:'white'}}>Bags Collection</h3>
           </div>
         </div>
 

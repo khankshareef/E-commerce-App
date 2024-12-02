@@ -99,8 +99,8 @@ function LadiesDress() {
                 </ul>
               </div>
   {/* Add to Cart Button */}
-  <div>
-                <button onClick={() => addToCart(dress)}>Add to Cart</button>
+  <div className='button-cart'>
+                <button onClick={() => addToCart(dress)}>Add to </button>
               </div>
              
             </div>

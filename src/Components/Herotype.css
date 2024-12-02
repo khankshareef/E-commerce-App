@@ -11,11 +11,28 @@
 .middle {
   display: flex;
   gap: 20px;
-padding: 10px;
 }
 
 .middle span {
   cursor: pointer;
+}
+.hover1:hover{
+  color:cornflowerblue;
+}
+.hover2:hover{
+  color:cornflowerblue;
+}
+.hover3:hover{
+  color:cornflowerblue;
+}
+.hover4:hover{
+  color:cornflowerblue;
+}
+.hover5:hover{
+  color:cornflowerblue;
+}
+.hover6:hover{
+  color:cornflowerblue;
 }
 
 .middle.open {

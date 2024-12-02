@@ -19,7 +19,7 @@ function Product() {
               Show Women <ArrowForwardTwoToneIcon className="arrow" />
             </button>
           </Link>
-          <h1 style={{position:'absolute',top:'35%',left:'40%',fontWeight:'bolder',color:'white'}}>Women</h1>
+          <h1 style={{position:'absolute',top:'36%',left:'37%',fontWeight:'bolder',color:'white'}}>Women</h1>
         </div>
 
         {/* Show Men */}
@@ -30,7 +30,7 @@ function Product() {
               Show Men <ArrowForwardTwoToneIcon className="arrow" />
             </button>
           </Link>
-          <h1 style={{position:'absolute',top:'35%',left:'40%',fontWeight:'bolder',color:'white'}}>Men</h1>
+          <h1 style={{position:'absolute',top:'35%',left:'42%',fontWeight:'bolder',color:'white'}}>Men</h1>
         </div>
 
         {/* Show Kids */}

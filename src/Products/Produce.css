@@ -54,22 +54,27 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); /* Centers the button */
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
   padding: 10px 20px;
-  background-color: rgba(255, 102, 0, 0.9);
-  color: #fff;
+  border: none;
   font-size: 16px;
   font-weight: bold;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 20px;
+  cursor: pointer;
   opacity: 1; /* Make the button always visible */
   visibility: visible; /* Make the button always visible */
+  transition: transform 0.3s ease-in-out;
+  border-radius: 10px;
+}
+.shop-now-btn{
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 /* Button hover effect */
 .shop-now-btn:hover {
-  background-color: rgba(230, 92, 0, 0.9);
+  background-color: #222; /* Slightly lighter shade of black for hover effect */
+  color: #fff; /* Keep the text color white */
 }
 
 /* Responsive Design */

@@ -28,12 +28,12 @@ function Herotype() {
 
       {/* Middle Section (Desktop & Mobile Menu) */}
       <div style={{padding:'20px'}} className={`middle ${menuOpen ? "open" : ""}`}>
-        <span>Home</span>
-        <span>Catalog</span>
-        <span>Shop</span>
-        <span>Pages</span>
-        <span>Blog</span>
-        <span>Docs</span>
+        <span className='hover1'>Home</span>
+        <span className='hover2'>Catalog</span>
+        <span className='hover3'>Shop</span>
+        <span className='hover4'>Pages</span>
+        <span className='hover5'>Blog</span>
+        <span className='hover6'>Docs</span>
       </div>
 
       {/* Right Section */}
