@@ -26,7 +26,7 @@ function LatestContents() {
   <img style={{width:'100px',margin:'20px'}}  src="https://img.freepik.com/free-photo/woman-with-floral-dress-bare-feet_23-2148261281.jpg?ga=GA1.1.162865647.1732266041&semt=ais_hybrid"  className="card-img-top" alt="..."/>
   <div className="card-body">
     <h5 className="card-title">Cotton Print Dress</h5>
-    <p className="card-text">God every fill great replenish darkness unto. Very open.Likeness their that light .Given under image to.
+    <p className="card-text" style={{width:'100%',display:'flex',alignItems:'center',justifyContent:'center'}}>God every fill great replenish darkness unto. Very open.Likeness their that light .Given under image to.
         Subdue of shall catte day fish from saw sprit and give starts,us you whales may,land,saw fill unto.
     </p>
    <p> Jane Jefferson,29 May 2019</p>

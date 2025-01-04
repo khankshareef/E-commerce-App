@@ -42,7 +42,7 @@ function HandBag() {
   return (
     <div className="handbag-container">
       <ToastContainer position="top-center" />
-      <h1>Handbags Collection</h1>
+      <h1>Jewelery Collection</h1>
 
       <div className="handbag-list">
         {handbags.map((handbag) => (

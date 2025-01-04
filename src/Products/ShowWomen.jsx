@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { toast, ToastContainer } from 'react-toastify'; // Correct import of Toastify
-import 'react-toastify/dist/ReactToastify.css'; // Import Toastify styles
+import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { DataContext } from '../Products/Routers'; // Correct import of DataContext
 import './ShowWomen.css';
 
@@ -30,35 +31,61 @@ function ShowWomen() {
   // Handle Add to Cart
   const addToCart = (dress) => {
     const existingItem = cart.find((cartItem) => cartItem.id === dress.id);
-
     if (existingItem) {
       setCart(cart.map((cartItem) =>
-        cartItem.id === dress.id
-          ? { ...cartItem, quantity: cartItem.quantity + 1 }
-          : cartItem
+        cartItem.id === dress.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
       ));
     } else {
       setCart([...cart, { ...dress, quantity: 1 }]);
     }
-
     toast.success(`${dress.title} added to cart!`);  // Toast notification
   };
 
   return (
     <div className="show-women">
       <h1>Women's Dresses Collection</h1>
+      <div className='single-data'>
 
-      <div className="single-image" style={{ marginBottom: '50px' }}>
+      <div className="single-image">
         <img
-          src="https://img.freepik.com/free-photo/stylish-woman-spending-time-summer-field_1157-36070.jpg?ga=GA1.1.162865647.1732266041&semt=ais_hybrid"
+          src="https://images-na.ssl-images-amazon.com/images/G/01/softlines/shopbop/ingress/2020/CategoryCards/mp_20200604_fashion_desktopsinglecategory_desktop_379x304._SY304_CB430707313_.jpg"
           alt="Stylish Woman"
+          className="product-image"
         />
+        <h2>Women's Casual White T-Shirt with Embroidered Floral Destgn and Blue Tie-Waist Pant</h2>
+        <p className="price">Price: $39.99</p>
+
+        <div className="available-size">
+          <h3>Available Sizes:</h3>
+          <div className="size-buttons">
+            <button className="size-button1">S</button>
+            <button className="size-button2">M</button>
+            <button className="size-button3">L</button>
+            <button className="size-button4">XL</button>
+          </div>
+        </div>
+
+        <div className="available-color">
+          <h3>Available Colors:</h3>
+          <div className="color-buttons">
+            <button className="color-button red">Red</button>
+            <button className="color-button blue">Blue</button>
+            <button className="color-button black">Black</button>
+            <button className="color-button green">Green</button>
+          </div>
+        </div>
+
+        <button className="cart-button">Add to Cart</button>
+      </div>
       </div>
 
       <div className="dress-list">
         {dresses.map((dress) => (
           <div className="dress-card" key={dress.id}>
-            <img src={dress.image} alt={dress.title} className="dress-image" />
+            <Link to={{ pathname: '/ProductDetails', state: { dress } }}>
+              <img src={dress.image} alt={dress.title} className="dress-image" />
+            </Link>
+
             <div className="dress-info">
               <h3>{dress.title}</h3>
               <p>Price: ${dress.price}</p>

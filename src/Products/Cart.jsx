@@ -10,7 +10,7 @@ function Cart({ cart, removeFromCart, decreaseQuantity }) {
       {cart.length === 0 ? (
         <div>
           <p>Your Cart is Empty</p>
-          <Link to='/' style={{textDecoration:'none',color:'black'}}>
+          <Link to='/app' style={{textDecoration:'none',color:'black'}}>
           <h1>Back to Home</h1>
           </Link>
         </div>

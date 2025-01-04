@@ -1,0 +1,166 @@
+/* General Styles */
+.product-details {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-details h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .product-details .product-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .product-details .product-image:hover {
+    transform: scale(1.05);
+  }
+  
+  .product-details .price {
+    font-size: 1.5rem;
+    color: #ff5722;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .product-details p {
+    text-align: center;
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  .product-details .available-size,
+  .product-details .available-color {
+    margin-bottom: 30px;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .size-buttons button,
+  .color-buttons button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .size-buttons button.selected,
+  .color-buttons button.selected {
+    background-color: #ff5722;
+    color: white;
+    border-color: #ff5722;
+  }
+  
+  .size-buttons button:hover,
+  .color-buttons button:hover {
+    background-color: #ff5722;
+    color: white;
+    border-color: #ff5722;
+  }
+  
+  .cart-button {
+    padding: 15px 30px;
+    background-color: #ff5722;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    margin: 20px auto;
+  }
+  
+  .cart-button:hover {
+    background-color: #e64a19;
+    transform: scale(1.05);
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .product-details {
+      padding: 15px;
+      margin: 10px;
+    }
+  
+    .product-details h1 {
+      font-size: 2rem;
+    }
+  
+    .product-details .product-image {
+      max-width: 100%;
+    }
+  
+    .product-details .price {
+      font-size: 1.3rem;
+    }
+  
+    .product-details p {
+      font-size: 0.9rem;
+    }
+  
+    .size-buttons button,
+    .color-buttons button {
+      padding: 8px 15px;
+      font-size: 0.9rem;
+    }
+  
+    .cart-button {
+      padding: 12px 25px;
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .product-details {
+      padding: 10px;
+    }
+  
+    .product-details h1 {
+      font-size: 1.5rem;
+    }
+  
+    .product-details .price {
+      font-size: 1.2rem;
+    }
+  
+    .size-buttons button,
+    .color-buttons button {
+      padding: 7px 12px;
+      font-size: 0.8rem;
+    }
+  
+    .cart-button {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+    }
+  }
+  

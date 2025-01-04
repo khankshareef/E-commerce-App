@@ -1,9 +1,16 @@
 import React, { createContext, useState } from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+
 import App from '../App';
 import Herotype from '../Components/Herotype';
 import Nav3Comp from '../Components/Nav3Comp';
 import Navbar from '../Components/Navbar';
+import ProductDetails from '../Components/ProductDetails';
+import Product3 from '../ContentWithPro/Product3';
+import AddingData from '../Registration/AddingData';
+import Login from '../Registration/Login';
+import Main from '../Registration/Main';
+import Register from '../Registration/Register';
 import Cart from './Cart';
 import Footer from './Footer';
 import HandBag from './HandBag';
@@ -26,9 +33,7 @@ function Routers() {
       const existingItem = prevCart.find((cartItem) => cartItem.id === item.id);
       if (existingItem) {
         return prevCart.map((cartItem) =>
-          cartItem.id === item.id
-            ? { ...cartItem, quantity: cartItem.quantity + 1 }
-            : cartItem
+          cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
         );
       }
       return [...prevCart, { ...item, quantity: 1 }];
@@ -48,9 +53,7 @@ function Routers() {
         return prevCart.filter((item) => item.id !== itemId);
       }
       return prevCart.map((item) =>
-        item.id === itemId
-          ? { ...item, quantity: item.quantity - 1 }
-          : item
+        item.id === itemId ? { ...item, quantity: item.quantity - 1 } : item
       );
     });
   };
@@ -59,32 +62,36 @@ function Routers() {
     <Router>
       <div className="Routers-con">
         <Navbar />
+
         {/* Provide the context for the entire app */}
         <DataContext.Provider value={{ cart, setCart }}>
           <Herotype cart={cart} />
           <Nav3Comp addToCart={addToCart} />
 
           <Routes>
-            <Route path="/" element={<App />} />
+            <Route path="/" element={<Main />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/app" element={<App />} />
             <Route
               path="/cart"
               element={
-                <Cart
-                  cart={cart}
-                  removeFromCart={removeFromCart}
-                  decreaseQuantity={decreaseQuantity}
-                />
+                <Cart cart={cart} removeFromCart={removeFromCart} decreaseQuantity={decreaseQuantity} />
               }
             />
-            <Route path="/women" element={<ShowWomen data={"https://images-na.ssl-images-amazon.com/images/G/01/softlines/shopbop/ingress/2020/CategoryCards/mp_20200604_fashion_desktopsinglecategory_desktop_379x304._SY304_CB430707313_.jpg"}/>} />
+            <Route path="/women" element={<ShowWomen data={'https://images-na.ssl-images-amazon.com/images/G/01/softlines/shopbop/ingress/2020/CategoryCards/mp_20200604_fashion_desktopsinglecategory_desktop_379x304._SY304_CB430707313_.jpg'} />} />
             <Route path="/men" element={<ShowMen />} />
             <Route path="/kids" element={<ShowKid />} />
             <Route path="/menimage" element={<Menimage />} />
             <Route path="/shirt" element={<Shirtimage />} />
             <Route path="/ladies" element={<LadiesDress />} />
             <Route path="/handbag" element={<HandBag />} />
+            <Route path="/productdetails" element={<ProductDetails />} />
+            <Route path="/addingdata" element={<AddingData />} /> {/* Adding data route */}
+            <Route path="/product3" element={<Product3 selectedCategory="women's clothing" />} /> {/* Product3 route */}
           </Routes>
         </DataContext.Provider>
+
         <Footer />
       </div>
     </Router>

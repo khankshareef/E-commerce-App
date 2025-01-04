@@ -12,14 +12,14 @@ function Produce1() {
           <div className="image-wrapper">
             <Link to='/handbag'>
             <img style={{width:'700px',height:'380px'}}
-              src="https://img.freepik.com/premium-photo/woman-hand-bag-dark-background_218381-1315.jpg?ga=GA1.1.162865647.1732266041&semt=ais_hybrid"
+              src="https://img.freepik.com/premium-photo/gold-necklace-with-decration-plate-display_764413-69.jpg?uid=R179557919&ga=GA1.1.162865647.1732266041&semt=ais_hybrid"
               alt="Product 1"
             />
             <a href="/shop" className="shop-now-btn">
               Shop Now ➡ 
             </a>
             </Link>
-            <h3 style={{position:'absolute',top:'30%',left:'35%',fontFamily:'fantasy',fontWeight:'bolder',color:'white'}}>Bags Collection</h3>
+            <h3 style={{position:'absolute',top:'30%',left:'36%',color:'white',fontWeight:'bolder'}}>Jewelery Collection</h3>
           </div>
         </div>
 
@@ -27,6 +27,7 @@ function Produce1() {
         <div className="products1">
           <Link to="/shirt">
             <div className="image-wrapper">
+              
               <img style={{width:'300px',height:'380px'}}
                 src="https://m.media-amazon.com/images/I/714eIPqFXLL._AC_UL480_FMwebp_QL65_.jpg"
                 alt="Product 2"
@@ -34,7 +35,7 @@ function Produce1() {
               <a href="/shop" className="shop-now-btn">
                 Shop Now ➡ 
               </a>
-              <h3 style={{position:'absolute',top:'20%',left:'30%',fontFamily:'fantasy',fontWeight:'bolder',color:'white'}}>Printed men's Shirts</h3>
+              <h3 style={{position:'absolute',top:'20%',left:'22%',fontWeight:'bolder',color:'white'}}>Printed men's Shirts</h3>
             </div>
           </Link>
           

@@ -120,6 +120,16 @@
   .dress-info .colors li:hover {
     background-color: #f0f0f0;
   }
+  .button-cart{
+    background-color: #007bff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .button-cart:hover{
+    background-color: #0056b3;
+  }
   
   /* Media Queries for Mobile and Tablet Devices */
   @media (max-width: 768px) {

@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { DataContext } from './Routers'; // Import your context
@@ -50,37 +51,38 @@ function ShowKids() {
       <h1>Kids' Clothing Collection</h1>
 
       <div className="product-display">
-        <div className="product-info">
-          <div className="sizes">
-            <strong>Available Sizes:</strong>
-            <ul>
-              <li>S</li>
-              <li>M</li>
-              <li>L</li>
-            </ul>
-          </div>
-
-          <div className="colors">
-            <strong>Available Colors:</strong>
-            <ul>
-              <li>Red</li>
-              <li>Blue</li>
-              <li>Pink</li>
-              <li>Green</li>
-            </ul>
-          </div>
-
-          {/* Add to Cart Button */}
-          <button className="add-to-cart-btn" onClick={() => addToCart(dresses[0])}>
-            Add to Cart
-          </button>
-        </div>
-
-        <div className="product-image">
+        
+      <div className='single-data'>
+        <div className="single-image">
           <img
             src="https://img.freepik.com/free-photo/full-shot-smiley-girl-with-flowers_23-2149067166.jpg?ga=GA1.1.162865647.1732266041&semt=ais_hybrid"
             alt="Kids Clothing"
           />
+           <h2>Adorable Vintage-Style Girl's Pinafore Dress</h2>
+  <p className="price">Price: $39.99</p>
+
+  <div className="available-size">
+    <h3>Available Sizes:</h3>
+    <div className="size-buttons">
+      <button className="size-button1">S</button>
+      <button className="size-button2">M</button>
+      <button className="size-button3">L</button>
+      <button className="size-button4">XL</button>
+    </div>
+  </div>
+
+  <div className="available-color">
+    <h3>Available Colors:</h3>
+    <div className="color-buttons">
+      <button className="color-button red">Red</button>
+      <button className="color-button blue">Blue</button>
+      <button className="color-button black">Black</button>
+      <button className="color-button green">Green</button>
+    </div>
+  </div>
+
+  <button className="cart-button">Add to Cart</button>
+        </div>
         </div>
       </div>
 
@@ -88,7 +90,7 @@ function ShowKids() {
         {dresses.length > 0 ? (
           dresses.map((dress) => (
             <div className="dress-card" key={dress.id}>
-              <img src={dress.image} alt={dress.title} className="dress-image" />
+            <Link to='/ProductDetails'>  <img src={dress.image} alt={dress.title} className="dress-image" /></Link>
               <div className="dress-info">
                 <h3>{dress.title}</h3>
                 <p>Price: ${dress.price}</p>

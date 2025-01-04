@@ -11,62 +11,129 @@ h1 {
   color: #333;
 }
 
-/* Image Section */
-.single-image img {
+.single-image {
   width: 100%;
-  max-width: 450px;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Dresses List */
-.dress-list {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  gap: 20px;
+  height: 100%; /* Ensure the height is defined */
+  text-align: center; /* Optional: for centering text within the container */
 }
-
-.dress-card {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  width: 280px;
-  transition: transform 0.3s ease;
-}
-
-.dress-card:hover {
-  transform: scale(1.05);
-}
-
-.dress-image {
+.single-data{
   width: 100%;
-  height: 300px;
-  object-fit: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Dress Info */
-.dress-info {
-  padding: 15px;
-  text-align: left;
+/* Image styling */
+.product-image {
+  width: 150px;
+  margin: 40px 0;
 }
 
-.dress-info h3 {
-  margin: 10px 0;
-  font-size: 1.2em;
-  color: #333;
-}
-
-.dress-info p {
-  margin: 5px 0;
+/* Price styling */
+.price {
+  font-weight: bold;
+  font-size: 18px;
   color: #555;
 }
 
-/* Sizes and Colors */
-.sizes, .colors {
-  margin: 10px 0;
+/* Size section */
+.available-size h3,
+.available-color h3 {
+  font-size: 16px;
+  margin: 15px 0 10px;
+}
+.size-buttons{
+  display: flex;
+}
+.color-buttons{
+  display: flex;
+}
+
+.size-buttonss .size-button {
+  margin: 5px;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.size-button1{
+  background-color: #ccc;
+  color: black;
+  width: 40px;
+  margin-right: 10px;
+}
+.size-button2{
+  background-color: #ccc;
+  color: black;
+  width: 40px;
+  margin-right: 10px;
+}
+.size-button3{
+  background-color: #ccc;
+  color: black;
+  width: 40px;
+  margin-right: 10px;
+}
+.size-button4{
+  background-color: #ccc;
+  color: black;
+  width: 40px;
+  margin-right: 10px;
+}
+
+/* Color section */
+.color-buttons .color-button {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+  width: 40px;
+}
+
+.color-button.red {
+  background-color: #ccc;
+  color: black;
+}
+
+.color-button.blue {
+  background-color: #ccc;
+  color: black;
+}
+
+.color-button.black {
+  background-color: #ccc;
+  color: black;
+}
+
+.color-button.green {
+  background-color: #ccc;
+  color: black;
+}
+
+/* Add to Cart button */
+.cart-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 150px;
+}
+
+.cart-button:hover {
+  background-color: #0056b3;
 }
 
 .sizes ul, .colors ul {
@@ -115,3 +182,6 @@ h1 {
     text-align: center;
   }
 }
+
+
+

@@ -29,12 +29,22 @@
     display: flex;
     gap: 10px;
   }
+ 
   
   .rightnav .dropdown {
     display: flex;
     align-items: center;
     gap: 5px;
     cursor: pointer;
+  }
+  .facebook:hover{
+    color: blue;
+  }
+  .twitter:hover{
+    color: blue;
+  }
+  .instagram:hover{
+    color: blue;
   }
   
   .more-btn {

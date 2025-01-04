@@ -37,9 +37,9 @@ function Navbar() {
           <h6 style={{marginLeft:'10px',marginTop:'8px'}}>Shipping</h6>
           <h6 style={{marginLeft:'10px',marginTop:'8px'}}>FAQ</h6>
           <h6 style={{marginLeft:'10px',marginTop:'8px'}}>Contact</h6>
-          <FacebookIcon style={{marginLeft:'10px',marginTop:'5px'}} />
-          <TwitterIcon style={{marginLeft:'10px',marginTop:'5px'}}/>
-          <InstagramIcon style={{marginLeft:'10px',marginTop:'5px'}}/>
+          <FacebookIcon className='facebook' style={{marginLeft:'10px',marginTop:'5px'}} />
+          <TwitterIcon className='twitter' style={{marginLeft:'10px',marginTop:'5px'}}/>
+          <InstagramIcon className='instagram' style={{marginLeft:'10px',marginTop:'5px'}}/>
         </div>
       </div>
 
