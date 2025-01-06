@@ -118,6 +118,32 @@ function Herotype() {
       <div className="mobile-menu">
         <MenuIcon onClick={handleMenuToggle} />
       </div>
+
+      {/* Mobile Menu Icons */}
+      {menuOpen && (
+        <div className="mobile-icons">
+          <SearchIcon className="hovers1" />
+          <Link to="/cart">
+            <ShoppingCartTwoToneIcon className="hovers4" style={{ color: "black" }} />
+            <span
+              className="order"
+              style={{
+                position: "relative",
+                top: "-13px",
+                left: "-5px",
+                color: "black",
+                borderRadius: "50%",
+                padding: "1.5px",
+                width: "10px",
+                fontSize: "15px",
+                textDecoration: "none",
+              }}
+            >
+              {cart.length}
+            </span>
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

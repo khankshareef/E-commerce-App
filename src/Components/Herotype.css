@@ -16,23 +16,14 @@
 .middle span {
   cursor: pointer;
 }
-.hover1:hover{
-  color:cornflowerblue;
-}
-.hover2:hover{
-  color:cornflowerblue;
-}
-.hover3:hover{
-  color:cornflowerblue;
-}
-.hover4:hover{
-  color:cornflowerblue;
-}
-.hover5:hover{
-  color:cornflowerblue;
-}
-.hover6:hover{
-  color:cornflowerblue;
+
+.hover1:hover,
+.hover2:hover,
+.hover3:hover,
+.hover4:hover,
+.hover5:hover,
+.hover6:hover {
+  color: cornflowerblue;
 }
 
 .middle.open {
@@ -55,14 +46,30 @@
   margin-right: 25px;
 }
 
+/* Ensures the icons are inside the menu icon for small screens */
+.mobile-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 150px;
+  display: none; /* Hidden by default */
+}
+
 .hovers1:hover,
-.hovers2:hover,
-.hovers3:hover,
 .hovers4:hover {
   color: #007bff;
   cursor: pointer;
 }
 
+/* Mobile Menu and Icons */
 .mobile-menu {
   display: none;
   position: absolute;
@@ -71,55 +78,6 @@
   z-index: 200;
   cursor: pointer;
 }
-.buttons1{
-  margin-top: -2px;
-  width: 70px;
-  height: 35px;
-  text-decoration: none;
-}
-.signin-button{
-  display: flex;
-  gap: 10px;
-  text-decoration: none;
-}
-.user-dropdown {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.user-name {
-  font-weight: bold;
-  color: black;
-  padding: 10px;
-}
-
-.dropdown {
-  position: absolute;
-  top: 30px;
-  right: 0;
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-}
-
-.dropdown-item {
-  padding: 10px 15px;
-  width: 100%;
-  text-align: left;
-  cursor: pointer;
-  background: white;
-  border: none;
-  outline: none;
-}
-
-.dropdown-item:hover {
-  background-color: #f0f0f0;
-}
-
-
 
 @media (max-width: 768px) {
   .middle {
@@ -132,5 +90,38 @@
 
   .mobile-menu {
     display: block; /* Show hamburger menu icon on small screens */
+  }
+
+  .mobile-icons {
+    display: flex; /* Show search and cart icons inside the menu */
+  }
+
+  /* Ensuring icons are aligned well inside the menu */
+  .right {
+    display: none; /* Hide icons from the main right section */
+  }
+
+  .buttons1 {
+    margin-top: -2px;
+    width: 70px;
+    height: 35px;
+    text-decoration: none;
+  }
+
+  .user-dropdown {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .dropdown {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    min-width: 200px; /* Make sure the dropdown has a reasonable width */
   }
 }
