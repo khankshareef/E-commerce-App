@@ -11,54 +11,49 @@ import "./Herotype.css";
 
 function Herotype() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [user, setUser] = useState(null); // Track user state
-  const [dropdownOpen, setDropdownOpen] = useState(false); // Control dropdown state
+  const [user, setUser] = useState(null);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const { cart } = useContext(DataContext);
   const navigate = useNavigate();
 
-  // Listen to auth state changes
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        setUser(currentUser); // Set user if logged in
+        setUser(currentUser);
       } else {
-        setUser(null); // Clear user if logged out
+        setUser(null);
       }
     });
-    return () => unsubscribe(); // Cleanup listener
+    return () => unsubscribe();
   }, []);
 
-  // Handle menu toggle
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
   };
 
-  // Handle logout
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      setUser(null); // Clear user state
-      setDropdownOpen(false); // Close dropdown
+      setUser(null);
+      setDropdownOpen(false);
       toast.success("Logged out successfully", { position: "top-center" });
-      navigate("/login");
+      setTimeout(() => navigate("/login"), 1000);
     } catch (error) {
       console.error("Error logging out:", error);
+      toast.error("Failed to log out", { position: "top-center" });
     }
   };
 
-  // Toggle dropdown menu for user options
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
   return (
     <div className="hero-com">
-      {/* Left Section */}
       <div className="left" style={{ display: "flex", alignItems: "center", gap: "15px" }}>
         <h3 style={{ fontWeight: "bolder", color: "black", textDecoration: "none" }}>Shopper</h3>
       </div>
 
-      {/* Middle Section */}
       <div style={{ padding: "20px" }} className={`middle ${menuOpen ? "open" : ""}`}>
         <span className="hover1">Home</span>
         <span className="hover2">Catalog</span>
@@ -68,7 +63,6 @@ function Herotype() {
         <span className="hover6">Docs</span>
       </div>
 
-      {/* Right Section */}
       <div className="right">
         <SearchIcon className="hovers1" />
         <div>
@@ -93,7 +87,6 @@ function Herotype() {
           </Link>
         </div>
 
-        {/* User Login/Dropdown */}
         <div className="signin-button">
           {user ? (
             <div className="user-dropdown" onClick={toggleDropdown}>
@@ -108,18 +101,16 @@ function Herotype() {
             </div>
           ) : (
             <Link to="/login">
-              <button className="buttons1">Signin</button>
+              <button className="small-signin">Signin</button>
             </Link>
           )}
         </div>
       </div>
 
-      {/* Mobile Hamburger Menu Icon */}
       <div className="mobile-menu">
         <MenuIcon onClick={handleMenuToggle} />
       </div>
 
-      {/* Mobile Menu Icons */}
       {menuOpen && (
         <div className="mobile-icons">
           <SearchIcon className="hovers1" />
@@ -142,6 +133,25 @@ function Herotype() {
               {cart.length}
             </span>
           </Link>
+
+          <div className="mobile-signin">
+            {user ? (
+              <div className="user-dropdown" onClick={toggleDropdown}>
+                <span className="user-name">{user.email}</span>
+                {dropdownOpen && (
+                  <div className="dropdown">
+                    <button className="dropdown-item" onClick={handleLogout}>
+                      Signout
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link to="/login">
+                <button className="small-signin" style={{width:'100px'}}>Signin</button>
+              </Link>
+            )}
+          </div>
         </div>
       )}
     </div>
