@@ -2,7 +2,6 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import './Footer.css';
 
 function Footer() {
@@ -67,14 +66,6 @@ function Footer() {
           <h6>khankshareef@gmail.com</h6>
         </div>
       </div>
-      {/* Only show this part if the logged-in user is the admin */}
-      {isAdmin && (
-        <div style={{ width: '200px', marginTop: '50px' }} className='search-con'>
-          <Link to='/addingdata'>
-            <button><span className='add-product'>Add Product Here</span></button>
-          </Link>
-        </div>
-      )}
     </div>
   );
 }

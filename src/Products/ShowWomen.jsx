@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { DataContext } from '../Products/Routers'; // Correct import of DataContext
@@ -7,10 +7,10 @@ import './ShowWomen.css';
 
 function ShowWomen() {
   const [dresses, setDresses] = useState([]);
-  const { cart, setCart } = useContext(DataContext);  // Correct context usage
+  const { cart, setCart } = useContext(DataContext); // Correct context usage
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetching the data multiple times to get more dresses
     const fetchData = async () => {
       const data1 = await fetch("https://fakestoreapi.com/products/category/women's clothing");
       const dresses1 = await data1.json();
@@ -41,55 +41,53 @@ function ShowWomen() {
     toast.success(`${dress.title} added to cart!`);  // Toast notification
   };
 
+  // Handle View button to navigate to ProductDetails
+  const handleView = (dress) => {
+    navigate('/productdetails', { state: { dress } });
+  };
+
   return (
     <div className="show-women">
       <h1>Women's Dresses Collection</h1>
-      <div className='single-data'>
-
-      <div className="single-image">
-        <img
-          src="https://images-na.ssl-images-amazon.com/images/G/01/softlines/shopbop/ingress/2020/CategoryCards/mp_20200604_fashion_desktopsinglecategory_desktop_379x304._SY304_CB430707313_.jpg"
-          alt="Stylish Woman"
-          className="product-image"
-        />
-        <h2>Women's Casual White T-Shirt with Embroidered Floral Destgn and Blue Tie-Waist Pant</h2>
-        <p className="price">Price: $39.99</p>
-
-        <div className="available-size">
-          <h3>Available Sizes:</h3>
-          <div className="size-buttons">
-            <button className="size-button1">S</button>
-            <button className="size-button2">M</button>
-            <button className="size-button3">L</button>
-            <button className="size-button4">XL</button>
+      <div className="product-display">
+        <div className='single-data'>
+          <div className="single-image">
+            <img
+              src="https://images-na.ssl-images-amazon.com/images/G/01/softlines/shopbop/ingress/2020/CategoryCards/mp_20200604_fashion_desktopsinglecategory_desktop_379x304._SY304_CB430707313_.jpg"
+              alt="Kids Clothing"
+            />
+            <h2>Adorable Vintage-Style Girl's Pinafore Dress</h2>
+            <p className="price">Price: $39.99</p>
+            <div className="available-size">
+              <h3>Available Sizes:</h3>
+              <div className="size-buttons">
+                <button className="size-button1">S</button>
+                <button className="size-button2">M</button>
+                <button className="size-button3">L</button>
+                <button className="size-button4">XL</button>
+              </div>
+            </div>
+            <div className="available-color">
+              <h3>Available Colors:</h3>
+              <div className="color-buttons">
+                <button className="color-button red">Red</button>
+                <button className="color-button blue">Blue</button>
+                <button className="color-button black">Black</button>
+                <button className="color-button green">Green</button>
+              </div>
+            </div>
+            <button className="cart-button">Add to Cart</button>
           </div>
         </div>
-
-        <div className="available-color">
-          <h3>Available Colors:</h3>
-          <div className="color-buttons">
-            <button className="color-button red">Red</button>
-            <button className="color-button blue">Blue</button>
-            <button className="color-button black">Black</button>
-            <button className="color-button green">Green</button>
-          </div>
-        </div>
-
-        <button className="cart-button">Add to Cart</button>
-      </div>
       </div>
 
       <div className="dress-list">
         {dresses.map((dress) => (
           <div className="dress-card" key={dress.id}>
-            <Link to={{ pathname: '/ProductDetails', state: { dress } }}>
-              <img src={dress.image} alt={dress.title} className="dress-image" />
-            </Link>
-
+            <img src={dress.image} alt={dress.title} className="dress-image" />
             <div className="dress-info">
               <h3>{dress.title}</h3>
               <p>Price: ${dress.price}</p>
-
               <div className="sizes">
                 <strong>Available Sizes:</strong>
                 <ul>
@@ -99,7 +97,6 @@ function ShowWomen() {
                   <li>XL</li>
                 </ul>
               </div>
-
               <div className="colors">
                 <strong>Available Colors:</strong>
                 <ul>
@@ -109,16 +106,19 @@ function ShowWomen() {
                   <li>Green</li>
                 </ul>
               </div>
-
-              <button className="add-to-cart-btn" onClick={() => addToCart(dress)}>
-                Add to Cart
-              </button>
+              <div className="women-add-buttons">
+                <button className="add-to-cart-btn" onClick={() => addToCart(dress)}>
+                  Add
+                </button>
+                <button className="add-to-cart-btn" onClick={() => handleView(dress)}>
+                  View
+                </button>
+              </div>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Toast Container for Toastify */}
       <ToastContainer />
     </div>
   );

@@ -5,7 +5,7 @@ import './Nav3Comp.css'
 function Nav3Comp({addToCart}) {
   return (
     <div className='nav3-comp'>
-        <span style={{fontSize:'13px',fontWeight:'bolder'}}>⚡️ HAPPY HOLIDAY DEALS ON EVERYTHING ⚡️</span>
+        <span className='happy-holiday' style={{fontSize:'13px',fontWeight:'bolder'}}>⚡️ HAPPY HOLIDAY DEALS ON EVERYTHING ⚡️</span>
     <Product3 addToCart={addToCart}/>
     </div>
   )

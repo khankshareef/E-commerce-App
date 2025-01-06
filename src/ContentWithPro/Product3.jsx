@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { DataContext } from '../Products/Routers'; // Accessing the cart context
+import { DataContext } from '../Products/Routers';
 import './Product3.css';
 
 function Product3({ selectedCategory }) {
@@ -10,6 +11,7 @@ function Product3({ selectedCategory }) {
   const [error, setError] = useState(null);
 
   const { cart, setCart } = useContext(DataContext); // Access cart context
+  const navigate = useNavigate(); // Hook to navigate
 
   // Map category to API URLs
   const categoryApiMap = {
@@ -22,7 +24,7 @@ function Product3({ selectedCategory }) {
   const fetchClothingData = async () => {
     const apiUrl = categoryApiMap[selectedCategory];
     if (!apiUrl) {
-      setError('Invalid category selected.');
+      setError('');
       setLoading(false);
       return;
     }
@@ -32,6 +34,7 @@ function Product3({ selectedCategory }) {
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
+
       const data = await response.json();
 
       // Extract data from the nested structure
@@ -57,33 +60,17 @@ function Product3({ selectedCategory }) {
     fetchClothingData();
   }, [selectedCategory]);
 
+  // Add to cart function
   const addToCart = (item) => {
     setCart((prevCart) => {
-      const existingItem = prevCart.find((cartItem) => cartItem.id === item.id);
-      if (existingItem) {
-        toast.info(`${item.name} quantity updated!`);
-        return prevCart.map((cartItem) =>
-          cartItem.id === item.id
-            ? { ...cartItem, quantity: cartItem.quantity + 1 }
-            : cartItem
-        );
-      }
+      // Add the item as a new entry every time
       toast.success(`${item.name} added to cart!`);
       return [...prevCart, { ...item, quantity: 1 }];
     });
   };
 
-  const removeFromCart = (id) => {
-    setCart((prevCart) =>
-      prevCart
-        .map((cartItem) =>
-          cartItem.id === id
-            ? { ...cartItem, quantity: cartItem.quantity - 1 }
-            : cartItem
-        )
-        .filter((cartItem) => cartItem.quantity > 0) // Remove items with quantity 0
-    );
-    toast.error('Item removed from cart!');
+  const handleProductClick = (product) => {
+    navigate('/productdetails', { state: { dress: product } }); // Pass product details
   };
 
   if (loading) {
@@ -108,21 +95,22 @@ function Product3({ selectedCategory }) {
                   ? `${item.description.slice(0, 200)}...`
                   : item.description || 'No description available'}
               </p>
-              <p style={{ marginBottom: '40px' }}>Price: ${item.price}</p>
-              <button
-                onClick={() => removeFromCart(item.id)}
-                type="button"
-                className="btn btn-warning buttonss"
-              >
-                Clear
-              </button>
-              <button
+              <p className='product-price' style={{ marginBottom: '40px' }}>Price: ${item.price}</p>
+              <div className='product1-buttons'>
+              <button 
                 onClick={() => addToCart(item)}
                 type="button"
-                className="btn btn-primary mx-5 buttons"
+                className="btn btn-primary buttons"
               >
-                Add to Cart
+                Add to
               </button>
+              <button
+                onClick={() => handleProductClick(item)}
+                className="btn btn-info"
+              >
+                View
+              </button>
+              </div>
             </div>
           </div>
         ))}

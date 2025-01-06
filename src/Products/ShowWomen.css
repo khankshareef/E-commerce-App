@@ -154,7 +154,7 @@ h1 {
 /* Add to Cart Button */
 .add-to-cart-btn {
   display: block;
-  width: 100%;
+  width: 100px;
   margin-top: 10px;
   padding: 10px;
   background-color: #007bff;
@@ -165,6 +165,13 @@ h1 {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+.women-add-buttons{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
 }
 
 .add-to-cart-btn:hover {

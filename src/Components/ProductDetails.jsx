@@ -1,35 +1,32 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { DataContext } from "../Products/Routers";
-import "./ProductDetails.css";
+import React, { useContext, useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { DataContext } from '../Products/Routers';
+import './ProductDetails.css';
 
 function ProductDetails() {
   const { cart, setCart } = useContext(DataContext);
-  const [selectedSize, setSelectedSize] = useState("");
-  const [selectedColor, setSelectedColor] = useState("");
+  const [selectedSize, setSelectedSize] = useState('');
+  const [selectedColor, setSelectedColor] = useState('');
   const location = useLocation();
   const navigate = useNavigate();
 
-  const { dress } = location.state || {};
+  const dress = location.state?.dress || JSON.parse(localStorage.getItem('selectedDress'));
 
   useEffect(() => {
-    if (!dress) {
-      console.error("No product details available");
-      toast.error("Product details not available");
+    if (dress) {
+      localStorage.setItem('selectedDress', JSON.stringify(dress));
+    } else {
+      toast.error('Product details not available');
+      navigate('/show-women');
     }
-  }, [dress]);
+  }, [dress, navigate]);
 
   const handleSizeSelect = (size) => setSelectedSize(size);
   const handleColorSelect = (color) => setSelectedColor(color);
 
   const addToCart = () => {
-    if (!selectedSize || !selectedColor) {
-      toast.error("Please select size and color!");
-      return;
-    }
-
     setCart((prevCart) => {
       const existingItem = prevCart.find((cartItem) => cartItem.id === dress.id);
       if (existingItem) {
@@ -39,35 +36,30 @@ function ProductDetails() {
             : cartItem
         );
       }
-      return [...prevCart, { ...dress, quantity: 1, selectedSize, selectedColor }];
+      return [...prevCart, { ...dress, quantity: 1 }];
     });
     toast.success(`${dress.title} added to cart!`);
   };
 
   if (!dress) {
-    return (
-      <div>
-        <p>No product details available</p>
-        <button onClick={() => navigate("/product-list")}>Back to Collection</button>
-      </div>
-    );
+    return null;
   }
 
   return (
     <div className="product-details">
-      <h1>{dress.name}</h1>
-      <img src={dress.image} alt={dress.name} className="product-image" />
+      <h1>{dress.title}</h1>
+      <img src={dress.image} alt={dress.title} className="product-image" />
       <p>{dress.description}</p>
       <p className="price">Price: ${dress.price}</p>
 
       <div className="available-size">
         <h3>Available Sizes:</h3>
         <div className="size-buttons">
-          {dress.sizes?.map((size) => (
+          {['S', 'M', 'L', 'XL'].map((size) => (
             <button
               key={size}
               onClick={() => handleSizeSelect(size)}
-              className={selectedSize === size ? "selected" : ""}
+              className={selectedSize === size ? 'selected' : ''}
             >
               {size}
             </button>
@@ -78,11 +70,11 @@ function ProductDetails() {
       <div className="available-color">
         <h3>Available Colors:</h3>
         <div className="color-buttons">
-          {dress.colors?.map((color) => (
+          {['Red', 'Blue', 'Black', 'Green'].map((color) => (
             <button
               key={color}
               onClick={() => handleColorSelect(color)}
-              className={selectedColor === color ? "selected" : ""}
+              className={selectedColor === color ? 'selected' : ''}
               style={{ backgroundColor: color.toLowerCase() }}
             >
               {color}
