@@ -139,7 +139,7 @@ function Herotype() {
               <div className="user-dropdown" onClick={toggleDropdown}>
                 <span className="user-name">{user.email}</span>
                 {dropdownOpen && (
-                  <div className="dropdown">
+                  <div  className="dropdown">
                     <button className="dropdown-item" onClick={handleLogout}>
                       Signout
                     </button>

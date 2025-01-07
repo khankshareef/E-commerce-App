@@ -2,7 +2,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { auth } from "../Firebase/Firebase";
@@ -70,7 +70,7 @@ const Login = () => {
           </div>
           <button type="submit" className="btn">Login</button>
           <p>
-            Don't have an account? <a href="/register">Register</a>
+            Don't have an account?<Link to='/register'><span>Register</span></Link>
           </p>
         </form>
         <ToastContainer />
