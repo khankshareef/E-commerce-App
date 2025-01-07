@@ -2,7 +2,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { auth } from "../Firebase/Firebase";
@@ -88,7 +88,7 @@ const Register = () => {
           </div>
           <button type="submit" className="btn">Register</button>
           <p>
-            Already have an account? <a href="/login">Login</a>
+            Already have an account? <Link to='/login'><span>Login</span></Link>
           </p>
         </form>
         <ToastContainer />
