@@ -1,58 +1,58 @@
-/* General styling for the clothing list */
-
-
-/* Styling for the grid layout */
+/* Flex container for the clothing grid */
 .clothing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Reduced min-width for smaller cards */
-  gap: 15px; /* Reduced gap between items */
-  width: 100%;
-  max-width: 1100px; /* Reduced max width for better alignment */
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping for responsiveness */
+  gap: 12px; /* Spacing between cards */
+  justify-content: center;
   margin: 0 auto;
+  width: 100%;
+  max-width: 1000px;
 }
 
-/* Styling for individual product cards */
+/* Styling for individual cards */
 .card {
   display: flex;
-  flex-direction: column;
-  align-items: stretch; /* Ensures the elements stretch vertically */
-  justify-content: space-between;
+  flex-direction: column; /* Align items in a column */
+  justify-content: flex-start;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 12px; /* Reduced padding for smaller cards */
-  text-align: left; /* Align text to the left */
+  padding: 10px;
+  width: 240px; /* Reduced width for smaller cards */
+  max-width: 100%; /* Ensures responsiveness */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: auto; /* Allow card to adjust height based on content */
-  max-height: 400px; /* Reduced card height */
-  overflow: hidden;
-}
-
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  margin-top: 20px;
 }
 
 /* Styling for product images */
-.card-img-top {
+.card img {
   width: 100%;
-  height: 180px; /* Reduced image height */
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 10px; /* Retain margin below image */
-  margin-top: 0; /* Cancel the top margin */
+  height: 190px; /* Reduced height for smaller cards */
+  object-fit: cover; /* Ensures the image fills the area */
+  border-radius: 5px;
+  margin-bottom: 8px;
+  margin-top: -0px;
+}
+
+/* Common flex wrapper for card content */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1; /* Ensures content stretches */
 }
 
 /* Styling for product title */
 .card-title {
-  font-size: 1.1rem; /* Slightly smaller font size */
+  font-size: 1rem; /* Reduced font size */
   font-weight: bold;
-  margin-bottom: 8px; /* Reduced space between title and description */
+  margin-bottom: 4px;
   color: #333;
+  height: 30px; /* Fixed height for consistency */
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
 }
 
 /* Styling for product description */
@@ -60,33 +60,39 @@
   font-size: 0.9rem;
   color: #666;
   line-height: 1.4;
-  margin-bottom: 8px; /* Reduced space between description and price */
-  min-height: 60px;
-  max-height: 80px; /* Slightly shorter description height */
+  height: 65px; /* Reduced height for description */
   overflow: hidden;
   text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 /* Styling for price */
 .product-price {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: bold;
-  margin-top: -10px; /* Reduced space between price and buttons */
   color: #333;
+  text-align: center;
+  height: 0px; /* Fixed height for price */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Ensuring the buttons are at the bottom */
+/* Styling for button container */
 .product1-buttons {
   display: flex;
-  justify-content: center;
-  margin-top: -50px;
-  gap: 8px; /* Reduced gap between buttons */
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: -30px; /* Pushes buttons to the bottom */
 }
 
 .product1-buttons button {
-  width: 70px; /* Reduced button width */
+  flex: 1;
   height: 35px; /* Reduced button height */
-  font-size: 0.85rem; /* Reduced font size */
+  font-size: 0.8rem;
   border-radius: 5px;
   border: none;
   cursor: pointer;
@@ -113,51 +119,63 @@
   background-color: #117a8b;
 }
 
-/* Responsive Design */
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .clothing-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Further reduced min-width */
+  .card {
+    width: 45%; /* Adjusted width for smaller screens */
   }
 
-  .card {
-    padding: 12px;
+  .card img {
+    height: 130px; /* Adjusted image height */
   }
 
   .card-title {
     font-size: 0.9rem;
+    height: 25px;
   }
 
   .card-text {
     font-size: 0.8rem;
+    height: 40px;
+  }
+
+  .product-price {
+    font-size: 0.9rem;
+    height: 20px;
   }
 
   .product1-buttons button {
-    width: 60px;
+    font-size: 0.7rem;
     height: 30px;
-    font-size: 0.8rem;
   }
 }
 
 @media (max-width: 480px) {
-  .clothing-grid {
-    grid-template-columns: 1fr; /* Single-column layout for small phones */
+  .card {
+    width: 100%; /* Cards take full width on mobile screens */
   }
 
-  .card-img-top {
-    height: 140px; /* Smaller image size for small screens */
+  .card img {
+    height: 120px; /* Further reduced for mobile */
   }
 
   .card-title {
-    font-size: 0.85rem; /* Adjusted font size */
+    font-size: 0.8rem;
+    height: 20px;
   }
 
   .card-text {
-    font-size: 0.7rem; /* Adjusted font size */
+    font-size: 0.7rem;
+    height: 35px;
+  }
+
+  .product-price {
+    font-size: 0.8rem;
+    height: 18px;
   }
 
   .product1-buttons button {
-    width: 55px;
-    height: 25px;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
+    height: 28px;
   }
 }

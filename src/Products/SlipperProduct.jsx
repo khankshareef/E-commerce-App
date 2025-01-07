@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import './HandBag.css';
 import { DataContext } from './Routers'; // Import your cart context
 

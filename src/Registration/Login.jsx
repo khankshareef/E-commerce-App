@@ -18,7 +18,8 @@ const Login = () => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      toast.success("Login successful!", { position: "top-center" });
+      toast.success("Login successful!",{ position: "top-center" },  { autoClose: 3000 }); // For specific toasts
+
 
       // Store the email in localStorage after login
       localStorage.setItem('userEmail', email);

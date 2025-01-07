@@ -1,7 +1,8 @@
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { DataContext } from '../Products/Routers'; // Correct import of DataContext
 import './ShowKid.css';
 
@@ -26,36 +27,44 @@ function ShowKid() {
 
     fetchData();
   }, []);
-
-  const addToCart = (dress) => {
-    const existingItem = cart.find((cartItem) => cartItem.id === dress.id);
-    if (existingItem) {
-      setCart(cart.map((cartItem) =>
-        cartItem.id === dress.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
-      ));
-    } else {
-      setCart([...cart, { ...dress, quantity: 1 }]);
-    }
-    toast.success(`${dress.title} added to cart!`);  // Toast notification
-  };
+ const addToCart = (item) => {
+     setCart((prevCart) => {
+       const updatedCart = [...prevCart, { ...item, quantity: 1 }];
+ 
+       toast.success(`${item.title} added to cart!`, {
+         position: "top-center",
+         autoClose: 3000, // Auto-hide after 3 seconds
+         hideProgressBar: false,
+         closeOnClick: true,
+         pauseOnHover: true,
+         draggable: true,
+         theme: "light",
+       });
+ 
+       return updatedCart;
+     });
+   };
 
   const handleView = (dress) => {
-    navigate('/product-details', { state: { dress } });
+    navigate('/productdetails', { state: { dress } });
   };
 
   return (
     <div className="show-kids">
       <ToastContainer />
+      <Link to='/app'>
+      <h3><ArrowBackIcon/>Back</h3>
+      </Link>
       <h1>Kids Clothing Collection</h1>
 
       <div className="single-data">
         <div className="single-image" style={{ marginBottom: '50px' }}>
           <img
-            src="https://images-na.ssl-images-amazon.com/images/G/01/softlines/shopbop/ingress/2020/CategoryCards/mp_20200604_fashion_desktopsinglecategory_desktop_379x304._SY304_CB430707313_.jpg"
+            src="https://img.freepik.com/premium-photo/little-girl-princess-dress_114963-1873.jpg?w=360"
             alt="Kids Clothing"
           />
-          <h2>Adorable Vintage-Style Girl's Pinafore Dress</h2>
-          <p className="price">Price: $39.99</p>
+          <h2>princess dress</h2>
+          <p className="price">Price: $9.99</p>
 
           <div className="available-size">
             <h3>Available Sizes:</h3>
@@ -104,7 +113,7 @@ function ShowKid() {
                   <li>XL</li>
                 </ul>
               </div>
-              <div className="colors">
+              <div className="sizes">
                 <strong>Available Colors:</strong>
                 <ul>
                   <li>Red</li>

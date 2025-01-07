@@ -130,6 +130,13 @@
   .button-cart:hover{
     background-color: #0056b3;
   }
+  .view-button{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
   
   /* Media Queries for Mobile and Tablet Devices */
   @media (max-width: 768px) {

@@ -35,6 +35,9 @@
   transform: translateY(-5px);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
+.view-buttom{
+  font-weight: bolder;
+}
 
 .product-image {
   width: 100%;
@@ -74,6 +77,8 @@
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  width: 100px;
+  height: 40px;
 }
 
 .buy-button:hover {
@@ -132,6 +137,45 @@
   border-radius: 50%;
   padding: 0;
   cursor: pointer;
+}
+.men-add-buttons{
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.view-btn{
+  background-color: #0288d1;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  width: 100px;
+  height: 40px;
+}
+.view-btn:hover{
+  background-color: #026aa7;
+}
+.add-to-cart-btn{
+  background-color: #0288d1;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  width: 100px;
+  height: 40px;
+}
+.add-to-cart-btn:hover{
+  background-color: #026aa7;
 }
 
 /* Responsive Design */

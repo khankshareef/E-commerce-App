@@ -1,7 +1,8 @@
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import React, { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { Link, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { DataContext } from '../Products/Routers'; // Correct import of DataContext
 import './ShowWomen.css';
 
@@ -29,17 +30,23 @@ function ShowWomen() {
   }, []);
 
   // Handle Add to Cart
-  const addToCart = (dress) => {
-    const existingItem = cart.find((cartItem) => cartItem.id === dress.id);
-    if (existingItem) {
-      setCart(cart.map((cartItem) =>
-        cartItem.id === dress.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
-      ));
-    } else {
-      setCart([...cart, { ...dress, quantity: 1 }]);
-    }
-    toast.success(`${dress.title} added to cart!`);  // Toast notification
-  };
+  const addToCart = (item) => {
+     setCart((prevCart) => {
+       const updatedCart = [...prevCart, { ...item, quantity: 1 }];
+ 
+       toast.success(`${item.title} added to cart!`, {
+         position: "top-center",
+         autoClose: 3000, // Auto-hide after 3 seconds
+         hideProgressBar: false,
+         closeOnClick: true,
+         pauseOnHover: true,
+         draggable: true,
+         theme: "light",
+       });
+ 
+       return updatedCart;
+     });
+   };
 
   // Handle View button to navigate to ProductDetails
   const handleView = (dress) => {
@@ -48,6 +55,9 @@ function ShowWomen() {
 
   return (
     <div className="show-women">
+      <Link to='/app'>
+      <h3><ArrowBackIcon/>Back</h3>
+      </Link>
       <h1>Women's Dresses Collection</h1>
       <div className="product-display">
         <div className='single-data'>
@@ -97,7 +107,7 @@ function ShowWomen() {
                   <li>XL</li>
                 </ul>
               </div>
-              <div className="colors">
+              <div className="sizes">
                 <strong>Available Colors:</strong>
                 <ul>
                   <li>Red</li>
@@ -111,7 +121,7 @@ function ShowWomen() {
                   Add
                 </button>
                 <button className="add-to-cart-btn" onClick={() => handleView(dress)}>
-                  View
+                  <span className='view-buttom'>View</span>
                 </button>
               </div>
             </div>

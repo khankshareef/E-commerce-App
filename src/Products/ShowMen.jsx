@@ -1,7 +1,8 @@
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { DataContext } from './Routers'; // Import your context
 import './ShowMen.css';
 
@@ -27,23 +28,23 @@ function ShowMen() {
     fetchData();
   }, []);
 
-  const addToCart = (dress) => {
-    setCart((prevCart) => {
-      const existingItem = prevCart.find((cartItem) => cartItem.id === dress.id);
-
-      if (existingItem) {
-        return prevCart.map((cartItem) =>
-          cartItem.id === dress.id
-            ? { ...cartItem, quantity: cartItem.quantity + 1 }
-            : cartItem
-        );
-      }
-      return [...prevCart, { ...dress, quantity: 1 }];
-    });
-
-    // Show toast notification
-    toast.success(`${dress.title} added to cart!`);
-  };
+ const addToCart = (item) => {
+     setCart((prevCart) => {
+       const updatedCart = [...prevCart, { ...item, quantity: 1 }];
+ 
+       toast.success(`${item.title} added to cart!`, {
+         position: "top-center",
+         autoClose: 3000, // Auto-hide after 3 seconds
+         hideProgressBar: false,
+         closeOnClick: true,
+         pauseOnHover: true,
+         draggable: true,
+         theme: "light",
+       });
+ 
+       return updatedCart;
+     });
+   };
 
   const handleView = (dress) => {
     navigate('/productdetails', { state: { dress } });
@@ -52,6 +53,9 @@ function ShowMen() {
   return (
     <div className="show-men">
       <ToastContainer />
+      <Link to='/app'>
+      <h3><ArrowBackIcon/>Back</h3>
+      </Link>
       <h1>Men's Clothing Collection</h1>
 
       <div className="single-data">
@@ -110,7 +114,7 @@ function ShowMen() {
                   <li>XL</li>
                 </ul>
               </div>
-              <div className="colors">
+              <div className="sizes">
                 <strong>Available Colors:</strong>
                 <ul>
                   <li>Red</li>
@@ -124,7 +128,7 @@ function ShowMen() {
                   Add
                 </button>
                 <button className="view-btn" onClick={() => handleView(dress)}>
-                  View
+                  <span className='view-buttom'>View</span>
                 </button>
               </div>
             </div>

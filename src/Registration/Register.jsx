@@ -35,7 +35,7 @@ const Register = () => {
 
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      toast.success("Registration successful!", { position: "top-center" });
+       toast.success("Registration successful!",{ position: "top-center" },  { autoClose: 3000 }); // For specific toasts
       setTimeout(() => navigate("/login"), 1000);
     } catch (error) {
       toast.error(error.message, { position: "top-center" });

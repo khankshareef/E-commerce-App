@@ -1,9 +1,11 @@
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import React, { useContext, useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { DataContext } from '../Products/Routers';
 import './ProductDetails.css';
+
 
 function ProductDetails() {
   const { cart, setCart } = useContext(DataContext);
@@ -47,6 +49,9 @@ function ProductDetails() {
 
   return (
     <div className="product-details">
+         <Link to='/app'>
+      <h3><ArrowBackIcon/>Back</h3>
+      </Link>
       <h1>{dress.title}</h1>
       <img src={dress.image} alt={dress.title} className="product-image" />
       <p>{dress.description}</p>

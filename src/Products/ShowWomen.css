@@ -177,6 +177,9 @@ h1 {
 .add-to-cart-btn:hover {
   background-color: #007bff;
 }
+.view-buttom{
+  font-weight: bolder;
+}
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {

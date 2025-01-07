@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { DataContext } from '../Products/Routers';
 import './Product3.css';
 
+
 function Product3({ selectedCategory }) {
   const [clothingData, setClothingData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -23,8 +24,9 @@ function Product3({ selectedCategory }) {
   // Fetch clothing data based on selectedCategory
   const fetchClothingData = async () => {
     const apiUrl = categoryApiMap[selectedCategory];
+
     if (!apiUrl) {
-      setError('');
+      setError('Invalid category selected.');
       setLoading(false);
       return;
     }
@@ -63,16 +65,28 @@ function Product3({ selectedCategory }) {
   // Add to cart function
   const addToCart = (item) => {
     setCart((prevCart) => {
-      // Add the item as a new entry every time
-      toast.success(`${item.name} added to cart!`);
-      return [...prevCart, { ...item, quantity: 1 }];
+      const updatedCart = [...prevCart, { ...item, quantity: 1 }];
+
+      toast.success(`${item.name} added to cart!`, {
+        position: "top-center",
+        autoClose: 3000, // Auto-hide after 3 seconds
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "light",
+      });
+
+      return updatedCart;
     });
   };
 
+  // Navigate to product details
   const handleProductClick = (product) => {
-    navigate('/productdetails', { state: { dress: product } }); // Pass product details
+    navigate('/productdetails', { state: { dress: product } });
   };
 
+  // Loading and error handling
   if (loading) {
     return <div className="loading">Loading...</div>;
   }
@@ -83,6 +97,7 @@ function Product3({ selectedCategory }) {
 
   return (
     <div className="clothing-list">
+      {/* ToastContainer must be included */}
       <ToastContainer position="top-center" />
       <div className="clothing-grid">
         {clothingData.map((item) => (
@@ -95,21 +110,23 @@ function Product3({ selectedCategory }) {
                   ? `${item.description.slice(0, 200)}...`
                   : item.description || 'No description available'}
               </p>
-              <p className='product-price' style={{ marginBottom: '40px' }}>Price: ${item.price}</p>
-              <div className='product1-buttons'>
-              <button 
-                onClick={() => addToCart(item)}
-                type="button"
-                className="btn btn-primary buttons"
-              >
-                Add to
-              </button>
-              <button
-                onClick={() => handleProductClick(item)}
-                className="btn btn-info"
-              >
-                View
-              </button>
+              <p className="product-price" style={{ marginBottom: '40px' }}>
+                Price: ${item.price}
+              </p>
+              <div className="product1-buttons">
+                <button
+                  onClick={() => addToCart(item)}
+                  type="button"
+                  className="btn btn-primary buttons"
+                >
+                  Add to
+                </button>
+                <button
+                  onClick={() => handleProductClick(item)}
+                  className="btn btn-info"
+                >
+                  View
+                </button>
               </div>
             </div>
           </div>
