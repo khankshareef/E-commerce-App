@@ -35,18 +35,22 @@ function Timer() {
                 <span className='time'><h1 className='time'>404: {time}</h1></span>
             </div>
 
-            <button style={{ bottom: '0px', backgroundColor: 'black', color: 'white', width: '150px', height: '50px' }}>
-                Shop Now <ArrowForwardTwoToneIcon className='arrow'/>
-            </button>
+            <div className="buttons-container">
+  <button className="shop-now">
+    Shop Now <ArrowForwardTwoToneIcon className="arrow" />
+  </button>
 
-            {/* Only show the "Add Product Here" button if the user is an admin */}
-            {isAdmin && (
-                <Link to='/addingdata'>
-                    <button className='add-product' style={{ marginLeft: '20px', backgroundColor: 'black', color: 'white', width: '150px', height: '50px' }}>
-                        Add Product Here
-                    </button>
-                </Link>
-            )}
+  {isAdmin && (
+    <Link to="/addingdata">
+      <button className="add-product">
+        <span className='add-product-button' style={{color:'white',fontSize:'13px',marginTop:'8px',textDecoration:'none'}}>
+        Add Product Here
+        </span>
+      </button>
+    </Link>
+  )}
+</div>
+
         </div>
     </div>
   );
