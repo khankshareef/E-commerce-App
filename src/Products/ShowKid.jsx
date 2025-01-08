@@ -87,7 +87,7 @@ function ShowKid() {
             </div>
           </div>
 
-          <button className="cart-button" onClick={() => addToCart(dresses[0])}>
+          <button className="cart-button" >
             Add to Cart
           </button>
         </div>
